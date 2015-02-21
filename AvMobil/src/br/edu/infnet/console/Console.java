@@ -37,7 +37,9 @@ public class Console {
             	return;
        	 }
  
-            System.out.println(carrosLista.size());
+            for(int i=0; i<carrosLista.size();i++) {
+            	System.out.println("Nome: " + (carrosLista.get(i)).getModelo());
+            }
         		
 	}
 }

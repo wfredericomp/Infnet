@@ -12,6 +12,7 @@ public class Database {
 
 	try {
 	
+		//vasco
 		
 	String driver = "com.mysql.jdbc.Driver";
 	Class.forName(driver);

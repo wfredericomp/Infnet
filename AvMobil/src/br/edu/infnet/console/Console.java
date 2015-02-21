@@ -7,12 +7,9 @@ public class Console {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-	    ArrayList<Carro> carrosLista = new ArrayList<Carro>();
+	   /* ArrayList<Carro> carrosLista = new ArrayList<Carro>();
 
-		try {
-
-
-            
+		           
             while (srs.next()) {
                 Carro carro = new Carro();
                 carro.setChassi(srs.getString("chassi"));
@@ -28,11 +25,8 @@ public class Console {
             }
  
             System.out.println(carrosLista.size());
-
-        } catch (Exception e) {
-            System.err.println("Advertência!");
-            System.err.println(e.getMessage());
-        }		
+*/
+        		
 	}
 }
 

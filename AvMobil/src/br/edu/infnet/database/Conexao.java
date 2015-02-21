@@ -33,7 +33,6 @@ public class Conexao {
 			System.out.println("Não foi possível conectar ao banco de dados.");
 			return null;
 		}
-		
 	}
 	
 	

@@ -13,7 +13,7 @@ public class Console {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Conectando com BD.");
 	   ArrayList<Carro> carrosLista = new ArrayList<Carro>();
 	   NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance();   
 	   
@@ -48,6 +48,7 @@ public class Console {
    		
    		
             for(int i=0; i<carrosLista.size();i++) {
+
 
             	System.out.println((i+1) + " - Modelo: " + (carrosLista.get(i)).getModelo().toUpperCase());
             	System.out.println("    Montadora: " + (carrosLista.get(i)).getMontadora().toUpperCase());

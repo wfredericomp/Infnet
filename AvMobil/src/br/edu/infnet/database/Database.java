@@ -6,7 +6,7 @@ public class Database {
 	static String database = "avmobildb"; 
 	static String url = "jdbc:mysql://" + serverName + ":3306/" + database; 
 	static String username = "root";  
-	static String password = "admin";
+	static String password = "informal";
 	
 }
 

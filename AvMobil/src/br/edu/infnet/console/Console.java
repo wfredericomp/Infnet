@@ -38,11 +38,14 @@ public class Console {
        	 }
  
   		System.out.println("#######################################################");
-   		System.out.println("#######                                        ########");
+   		System.out.println("#######          BEM VINDO A AV MOBIL          ########");
    		System.out.println("#######################################################");
        
+   		System.out.println("Estes são nossos carros disponíveis:");
+   		
+   		
             for(int i=0; i<carrosLista.size();i++) {
-            	System.out.println("Nome: " + (carrosLista.get(i)).getModelo());
+            	System.out.println(i + " - Nome: " + (carrosLista.get(i)).getModelo());
             }
         		
 	}

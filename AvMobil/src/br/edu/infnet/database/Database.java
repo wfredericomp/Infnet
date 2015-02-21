@@ -11,7 +11,6 @@ import java.util.List;
 public class Database {
 
 	try {
-	
 		
 	String driver = "com.mysql.jdbc.Driver";
 	Class.forName(driver);
@@ -27,7 +26,11 @@ public class Database {
 		
 		//Não conseguindo se conectar ao banco 
 		
-		System.out.println("Nao foi possivel conectar ao Banco de Dados."); return null; 
+		System.out.println("Nao foi possivel conectar ao Banco de Dados."); 
+		return null; 
+		
+		
+		/******* DIVINO ******/
 
-	}
 }
+

@@ -1,16 +1,25 @@
 package br.edu.infnet.console;
 
-import br.edu.infnet.model.Carro;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.sql.Statement;
+
+import br.edu.infnet.model.*;
+import br.edu.infnet.database.*;
 
 public class Console {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-	   /* ArrayList<Carro> carrosLista = new ArrayList<Carro>();
-
+	   ArrayList<Carro> carrosLista = new ArrayList<Carro>();
 		           
-            while (srs.next()) {
+       try {     
+    	   Statement st = Conexao.getConexao().createStatement();
+    	   ResultSet srs = st.executeQuery("SELECT * FROM carro");
+    	   
+	   while (srs.next()) {
                 Carro carro = new Carro();
                 carro.setChassi(srs.getString("chassi"));
                 carro.setMontadora(srs.getString("montadora"));
@@ -22,10 +31,13 @@ public class Console {
                 carro.setPreco(srs.getFloat("preco"));
                        
                 carrosLista.add(carro);
+                
             }
+       } catch (SQLException e) {
+            	return;
+       	 }
  
             System.out.println(carrosLista.size());
-*/
         		
 	}
 }

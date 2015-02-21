@@ -1,5 +1,4 @@
 package br.edu.infnet.database;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,8 +20,7 @@ public class Conexao {
 			String driver = "com.mysql.jdbc.Driver";
 			Class.forName(driver);
 			
-			connection = DriverManager.getConnection(Database.url, Database.username, Database.password);
-			
+			connection = DriverManager.getConnection(Database.url, Database.username, Database.password);			
 			return connection;
 					
 		} catch (ClassNotFoundException e) { //Erro driver conexão.
@@ -45,17 +43,15 @@ public class Conexao {
 		try {
 			Conexao.getConexao().close();
 			return true;
+			
 		} catch (SQLException e) {
-
             return false;
 		}
 	}
 	
 	//Método para reiniciar conexão com o banco.
 	public static java.sql.Connection restartConexao() {
-		
 		closeConexao();
-		
 		return Conexao.getConexao();
 	}
 	

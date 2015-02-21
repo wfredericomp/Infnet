@@ -1,13 +1,5 @@
 package br.edu.infnet.console;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import br.edu.infnet.model.Carro;
 
 public class Console {
@@ -19,12 +11,7 @@ public class Console {
 
 		try {
 
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			String url = "jdbc:mysql://localhost:3306/avmobildb";
-            Connection conn = DriverManager.getConnection(url, "root", "admin");
-            Statement st = conn.createStatement();
-            ResultSet srs = st.executeQuery("SELECT * FROM carro");
+
             
             while (srs.next()) {
                 Carro carro = new Carro();

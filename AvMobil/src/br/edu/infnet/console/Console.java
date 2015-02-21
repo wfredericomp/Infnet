@@ -13,9 +13,11 @@ public class Console {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Conectando com BD.");
-	   ArrayList<Carro> carrosLista = new ArrayList<Carro>();
-	   NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance();   
+		
+		System.out.println("Conectando com BD.\n");
+		
+		ArrayList<Carro> carrosLista = new ArrayList<Carro>();
+		NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance();   
 	   
 		           
        try {     
@@ -36,6 +38,9 @@ public class Console {
                 carrosLista.add(carro);
                 
             }
+	   
+	   			Conexao.closeConexao();
+       
        } catch (SQLException e) {
             	return;
        	 }

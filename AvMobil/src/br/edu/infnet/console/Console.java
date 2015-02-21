@@ -12,7 +12,7 @@ public class Console {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Conectando com BD.");
 	   ArrayList<Carro> carrosLista = new ArrayList<Carro>();
 		           
        try {     
@@ -38,7 +38,7 @@ public class Console {
        	 }
  
             for(int i=0; i<carrosLista.size();i++) {
-            	System.out.println("Nome: " + (carrosLista.get(i)).getModelo());
+            	System.out.println("Modelo: " + (carrosLista.get(i)).getModelo());
             }
         		
 	}

@@ -3,55 +3,54 @@ package br.edu.infnet.model;
 import java.util.ArrayList;
 
 public class Loja {
- private String nome;
- private String endereco;
- private ArrayList<Carro> vCarro = new ArrayList<Carro>();
- private ArrayList<Motocicleta> vMotocicleta = new ArrayList<Motocicleta>();
- 
- public Loja() {
-  super();
- }
+	private String nome;
+	private String endereco;
+	private ArrayList<Carro> listCar = new ArrayList<Carro>();
+	private ArrayList<Motocicleta> listMotocicleta = new ArrayList<Motocicleta>();
 
- public Loja(String nome, String endereco, ArrayList<Carro> vCarro,
-   ArrayList<Motocicleta> vMotocicleta) {
-  super();
-  this.nome = nome;
-  this.endereco = endereco;
-  this.vCarro = vCarro;
-  this.vMotocicleta = vMotocicleta;
- }
+	public Loja() {
+		super();
+	}
 
- public String getNome() {
-  return nome;
- }
+	public Loja(String nome, String endereco, ArrayList<Carro> listCar,
+			ArrayList<Motocicleta> listMotocicleta) {
+		super();
+		this.nome = nome;
+		this.endereco = endereco;
+		this.listCar = listCar;
+		this.listMotocicleta = listMotocicleta;
+	}
 
- public void setNome(String nome) {
-  this.nome = nome;
- }
+	public String getNome() {
+		return nome;
+	}
 
- public String getEndereco() {
-  return endereco;
- }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
- public void setEndereco(String endereco) {
-  this.endereco = endereco;
- }
+	public String getEndereco() {
+		return endereco;
+	}
 
- public ArrayList<Carro> getvCarro() {
-  return vCarro;
- }
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 
- public void setvCarro(Carro vCarro) {
-  this.vCarro.add(vCarro);
- }
+	public ArrayList<Carro> getListCar() {
+		return listCar;
+	}
 
- public ArrayList<Motocicleta> getvMotocicleta() {
-  return vMotocicleta;
- }
+	public void setListCar(Carro listCar) {
+		this.listCar.add(listCar);
+	}
 
- public void setvMotocicleta(Motocicleta vMotocicleta) {
-  this.vMotocicleta.add(vMotocicleta);
- }
+	public ArrayList<Motocicleta> getListMotocicleta() {
+		return listMotocicleta;
+	}
 
+	public void setListMotocicleta(Motocicleta listMotocicleta) {
+		this.listMotocicleta.add(listMotocicleta);
+	}
 
 }

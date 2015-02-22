@@ -1,0 +1,40 @@
+﻿/*
+*  Script do banco de dados avmobildb do projeto realizado para av1 da
+*  disciplina de Java III Instituto Infnet - Turma GADS 2014.2 Noite
+*/
+CREATE DATABASE `avmobildb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE TABLE `carro` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chassi` varchar(17) NOT NULL,
+  `montadora` varchar(15) NOT NULL,
+  `modelo` varchar(45) NOT NULL,
+  `tipo` varchar(45) NOT NULL,
+  `cor` varchar(45) NOT NULL,
+  `motor` varchar(45) NOT NULL,
+  `cambio` varchar(45) NOT NULL,
+  `preco` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `chassi_UNIQUE` (`chassi`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `avmobildb`.`loja` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `endereco` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `idloja_UNIQUE` (`id` ASC));
+
+CREATE TABLE `avmobildb`.`moto` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `chassi` VARCHAR(45) NOT NULL,
+  `montadora` VARCHAR(45) NOT NULL,
+  `modelo` VARCHAR(45) NOT NULL,
+  `tipo` VARCHAR(45) NOT NULL,
+  `cor` VARCHAR(45) NOT NULL,
+  `cilindrada` INT NOT NULL,
+  `capacidade_tanque` INT NOT NULL,
+  `preco` FLOAT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));
+

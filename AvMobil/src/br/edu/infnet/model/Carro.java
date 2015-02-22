@@ -12,6 +12,7 @@ public class Carro {
 	private String motor;
 	private String cambio;
 	private Float preco;
+	private String strTipo;
 
 	public Carro() {
 		super();
@@ -102,5 +103,15 @@ public class Carro {
 	public void setPreco(Float preco) {
 		this.preco = preco;
 	}
+
+	public String getStrTipo() {
+		return strTipo;
+	}
+
+	public void setStrTipo(String strTipo) {
+		this.strTipo = strTipo;
+	}
+	
+	
 
 }

@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<title>SISTEMA AVMOBIL</title>
+
+<link rel="stylesheet" type="text/css" href="../css/estilo.css"></link>
+</head>
+<h:body>
+
+	<div class="cabecalho2">
+
+		<!-- Menu -->
+		<div class="menu">
+			<ul class="menu-list">
+				<li><a href="index.xhtml">INÍCIO</a></li>
+				<li><a href="#">LOJA</a>
+					<ul class="sub-menu">
+						<li><a href="">NOVO</a></li>
+						<li><a href="">LISTAR</a></li>
+					</ul></li>
+				<li><a href="#">CARRO</a>
+					<ul class="sub-menu">
+						<li><a href="">NOVO</a></li>
+						<li><a href="">LISTAR</a></li>
+					</ul></li>
+				<li><a href="#">MOTOCICLETAS</a>
+					<ul class="sub-menu">
+						<li><a href="">NOVO</a></li>
+						<li><a href="">LISTAR</a></li>
+					</ul></li>
+			</ul>
+		</div>
+
+		<h:graphicImage library="img" name="logo.png" />
+		<h2>
+			<ui:insert name="titulo"></ui:insert>
+		</h2>
+	</div>
+
+	<div id="conteudo">
+		<ui:insert name="conteudo">
+		</ui:insert>
+	</div>
+
+	<div id="rodape">
+		<address>©Todos os direitos reservados - AvMobil
+			GADS-2014.2T.N - Intituto InfNet</address>
+	</div>
+
+</h:body>
+
+</html>

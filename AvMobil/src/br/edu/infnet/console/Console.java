@@ -1,6 +1,6 @@
 package br.edu.infnet.console;
 
-import br.edu.infnet.control.ControlLista;
+import br.edu.infnet.control.*;
 import java.util.Scanner;
 
 public class Console {
@@ -34,7 +34,8 @@ public class Console {
 			break;
 		
 		case 2:
-			System.out.println("Cadastro em construção");
+			//System.out.println("Cadastro em construção");
+			ControlCadastrar.cadastroVeiculo();
 			break;
 		
 		case 3:

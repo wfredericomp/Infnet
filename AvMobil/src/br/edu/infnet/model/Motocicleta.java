@@ -12,6 +12,8 @@ public class Motocicleta {
 	private Integer cilindrada;
 	private Integer capacidadeTanque;
 	private Float preco;
+	
+	private String strTipo;
 
 	public Motocicleta() {
 		super();
@@ -103,5 +105,15 @@ public class Motocicleta {
 	public void setPreco(Float preco) {
 		this.preco = preco;
 	}
+
+	public String getStrTipo() {
+		return strTipo;
+	}
+
+	public void setStrTipo(String strTipo) {
+		this.strTipo = strTipo;
+	}
+	
+	
 
 }

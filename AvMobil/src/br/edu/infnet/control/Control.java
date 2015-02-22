@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import br.edu.infnet.database.Conexao;
 import br.edu.infnet.model.*;
-import br.edu.infnet.model.colecoes.*;
 
 public class Control {
 
@@ -29,7 +28,7 @@ public class Control {
                 carro.setChassi(srs.getString("chassi"));
                 carro.setMontadora(srs.getString("montadora"));
                 carro.setModelo(srs.getString("modelo"));
-                carro.setTipo(srs.getTipoCarro("tipo"));
+                carro.setStrTipo(srs.getString("tipo"));
                 carro.setCor(srs.getString("cor"));
                 carro.setMotor(srs.getString("motor"));
                 carro.setCambio(srs.getString("cambio"));
@@ -49,7 +48,7 @@ public class Control {
 
             	System.out.println((i+1) + " - Modelo: " + (carroLista.get(i)).getModelo().toUpperCase());
             	System.out.println("    Montadora: " + (carroLista.get(i)).getMontadora().toUpperCase());
-            	System.out.println("    Tipo: " + (carroLista.get(i)).getTipo());
+            	System.out.println("    Tipo: " + (carroLista.get(i)).getStrTipo());
             	System.out.println("    Cor: " + (carroLista.get(i)).getCor().toUpperCase());
             	System.out.println("    Câmbio: " + (carroLista.get(i)).getCambio().toUpperCase());
             	System.out.println("    Motor: " + (carroLista.get(i)).getMotor().toUpperCase());
@@ -75,7 +74,7 @@ public class Control {
                   moto.setChassi(srs.getString("chassi"));
                   moto.setMontadora(srs.getString("montadora"));
                   moto.setModelo(srs.getString("modelo"));
-                  moto.setTipo((TipoMotocicleta) srs.getString("tipo"));
+                  moto.setStrTipo(srs.getString("tipo"));
                   moto.setCor(srs.getString("cor"));
                   moto.setCilindrada(srs.getInt("cilindradas"));
                   moto.setCapacidadeTanque(srs.getInt("capacidade_tanque"));
@@ -95,7 +94,7 @@ public class Control {
 
                  	System.out.println((i+1) + " - Modelo: " + (motoLista.get(i)).getModelo().toUpperCase());
                    	System.out.println("    Montadora: " + (motoLista.get(i)).getMontadora().toUpperCase());
-                   	System.out.println("    Tipo: " + (motoLista.get(i)).getTipo());
+                   	System.out.println("    Tipo: " + (motoLista.get(i)).getStrTipo());
                    	System.out.println("    Cor: " + (motoLista.get(i)).getCor().toUpperCase());
                    	System.out.println("    Câmbio: " + (motoLista.get(i)).getCilindrada());
                    	System.out.println("    Motor: " + (motoLista.get(i)).getCapacidadeTanque());

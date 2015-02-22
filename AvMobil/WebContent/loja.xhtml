@@ -12,7 +12,7 @@
 	<div id="topo"></div>
 
 	<div id="conteudo">
-		<h:form>
+		<h:form enctype="multipart/form-data” acceptcharset=“utf-8">
 				<br />
 				<fieldset>
 					<legend>Dados da loja</legend>
@@ -22,10 +22,10 @@
 					<h:panelGrid columns="2">
 
 						<h:outputLabel value="Nome:" for="nome" />
-						<h:inputText id="nome" value="#{loja.nome}" />
+						<h:inputText id="nome" value="#{lojaBean.loja.nome}" />
 
 						<h:outputLabel value="Endereço:" for="endereco" />
-						<h:inputText id="endereco" value="#{loja.endereco}" />
+						<h:inputText id="endereco" value="#{lojaBean.loja.endereco}" />
 
 					</h:panelGrid>
 				</fieldset>

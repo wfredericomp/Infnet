@@ -1,11 +1,13 @@
 package br.edu.infnet.model;
 
+import br.edu.infnet.model.colecoes.*;
+
 public class Carro {
 	private Integer id;
 	private String chassi;
 	private String montadora;
 	private String modelo;
-	private String tipo;
+	private TipoCarro tipo;
 	private String cor;
 	private String motor;
 	private String cambio;
@@ -16,7 +18,7 @@ public class Carro {
 	}
 
 	public Carro(Integer id, String chassi, String montadora, String modelo,
-			String tipo, String cor, String motor, String cambio, Float preco) {
+			TipoCarro tipo, String cor, String motor, String cambio, Float preco) {
 		super();
 		this.id = id;
 		this.chassi = chassi;
@@ -61,11 +63,11 @@ public class Carro {
 		this.modelo = modelo;
 	}
 
-	public String getTipo() {
+	public TipoCarro getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(TipoCarro tipo) {
 		this.tipo = tipo;
 	}
 

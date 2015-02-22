@@ -1,6 +1,6 @@
 package br.edu.infnet.console;
 
-import br.edu.infnet.control.Control;
+import br.edu.infnet.control.ControlLista;
 import java.util.Scanner;
 
 public class Console {
@@ -30,7 +30,7 @@ public class Console {
 		switch (opcao) {
 		
 		case 1:
-			Control.listaCarros();
+			ControlLista.listaCarros();
 			break;
 		
 		case 2:

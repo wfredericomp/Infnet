@@ -24,8 +24,6 @@ public class Console {
 		   
 		opcao = sc.nextInt();
 		sc.close();
-		
-		
 				
 		switch (opcao) {
 		

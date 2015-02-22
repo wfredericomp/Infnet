@@ -1,5 +1,6 @@
 package br.edu.infnet.control;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -11,57 +12,27 @@ public class ControlCadastrar {
 	public static void cadastroVeiculo() {
 	
 		Scanner sc = new Scanner(System.in);
-		
+		int chassi = 0;
 		System.out.println("Informe os dados do veículo:");
 		
 		System.out.println("Chassi:");
-		String chassi = sc.toString();
-		
-/*		System.out.println("Montadora:");
-		String montadora = sc.toString();
-		
-		System.out.println("Modelo:");
-		String modelo = sc.toString(); 
-		
-		System.out.println("Tipo:");
-		String tipo = sc.toString();
-		
-		System.out.println("Cor:");
-		String cor = sc.toString();
-		
-		System.out.println("Motor:");
-		String motor = sc.toString();
-		
-		System.out.println("Câmbio:");
-		String cambio = sc.toString();
-		
-		System.out.println("Preço:");
-		Float preco = sc.nextFloat();
-*/		
+		chassi = sc.nextInt();
 		sc.close();
-		
+					
 		try {
 			
-	    	String sql = "INSERT INTO carro (chassi)" /*, montadora, modelo, tipo, cor, motor, cambio, preco)" */ + 
-	    				 "VALUES (?)"; //, ?, ?, ?, ?, ?, ?, ? )";
-	    	
-	    	PreparedStatement preparedStatement = Conexao.getConexao().prepareStatement(sql);
+			Connection con = Conexao.getConexao();
 			
-	    	preparedStatement.setString(1, chassi);
-/*	    	preparedStatement.setString(2, montadora);
-	    	preparedStatement.setString(3, modelo);
-	    	preparedStatement.setString(4, tipo);
-	    	preparedStatement.setString(5, cor);
-	    	preparedStatement.setString(6, motor);
-	    	preparedStatement.setString(7, cambio);
-	    	preparedStatement.setFloat(8, preco);
-*/	    	
-	    	preparedStatement.executeUpdate();    	
+	    	String sql = "INSERT INTO carro (chassi) VALUES (?)"; 
+	    	    	
+	    	PreparedStatement comando = con.prepareStatement(sql);
+			
+	    	comando.setInt(1, chassi);
+	    	comando.executeUpdate();    	
 	    	
 		} catch (SQLException e) {
-			System.out.println("Erro, operação abortada");
+			System.out.println(e);
 		}
-		
 	}
 }
 

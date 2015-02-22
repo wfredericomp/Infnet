@@ -9,15 +9,17 @@ import br.edu.infnet.database.Conexao;
 
 public class ControlCadastrar {
 	
+	private static Scanner sc;
+
 	public static void cadastroVeiculo() {
 	
-		Scanner sc = new Scanner(System.in);
-		int chassi = 0;
+		sc = new Scanner(System.in);
+		String chassi;
 		System.out.println("Informe os dados do veículo:");
 		
 		System.out.println("Chassi:");
-		chassi = sc.nextInt();
-		sc.close();
+		chassi = sc.next();
+		System.out.println(chassi);
 					
 		try {
 			
@@ -27,7 +29,7 @@ public class ControlCadastrar {
 	    	    	
 	    	PreparedStatement comando = con.prepareStatement(sql);
 			
-	    	comando.setInt(1, chassi);
+	    	comando.setString(1, chassi);
 	    	comando.executeUpdate();    	
 	    	
 		} catch (SQLException e) {

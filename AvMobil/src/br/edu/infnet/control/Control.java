@@ -40,11 +40,7 @@ public class Control {
 		} catch (SQLException e) {
             	return;
        		}
-       
-  		System.out.println("#######################################################");
-   		System.out.println("#######          BEM VINDO A AV MOBIL          ########");
-   		System.out.println("#######################################################");
-       
+             
    		System.out.println("\n Estes são nossos carros disponíveis: \n");
    		   		
             for(int i=0; i<carrosLista.size();i++) {

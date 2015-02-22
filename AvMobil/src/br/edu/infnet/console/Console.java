@@ -24,10 +24,7 @@ public class Console {
 		   
 		opcao = sc.nextInt();
 		sc.close();
-		
-		System.out.println("cls");
-
-		
+				
 		switch (opcao) {
 		
 		case 1:
@@ -46,9 +43,6 @@ public class Console {
 			System.out.println("Exclusão em construção");
 			break;	
 		}
-		
-		
-		
 	}
 }
 

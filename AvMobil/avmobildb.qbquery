@@ -21,7 +21,7 @@ CREATE TABLE `carro` (
 CREATE TABLE `avmobildb`.`loja` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
-  `endereco` VARCHAR(45) NOT NULL,
+  `endereco` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idloja_UNIQUE` (`id` ASC));
 
@@ -38,3 +38,4 @@ CREATE TABLE `avmobildb`.`moto` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC));
 
+drop database avmobildb;

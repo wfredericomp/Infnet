@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import br.edu.infnet.database.Conexao;
 import br.edu.infnet.model.*;
-import br.edu.infnet.model.colecoes.*;
 
 public class ControlLista {
 

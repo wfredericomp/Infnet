@@ -19,13 +19,10 @@ public class Loja {
 		super();
 	}
 
-	public Loja(String nome, String endereco, ArrayList<Carro> listCar,
-			ArrayList<Motocicleta> listMotocicleta) {
+	public Loja(String nome, String endereco) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
-		this.listCar = listCar;
-		this.listMotocicleta = listMotocicleta;
 	}
 
 	public String getNome() {

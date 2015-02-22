@@ -4,19 +4,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-
+	
 	public Conexao() {
 		
 	}
 	
 	public static java.sql.Connection getConexao() {
-		
 		Connection connection = null;
-		
 		try {
 			
 			//Cria conexão com o banco de dados.
-			
 			String driver = "com.mysql.jdbc.Driver";
 			Class.forName(driver);
 			

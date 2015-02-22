@@ -26,11 +26,11 @@ public class Loja {
 		this.nome = nome;
 		this.endereco = endereco;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id = id;
 	}

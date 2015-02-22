@@ -14,6 +14,7 @@ import br.edu.infnet.model.DAO.LojaDAO;
 @ManagedBean
 @ViewScoped
 public class LojaBean {
+	
 	static ArrayList<Loja> listLojas = new ArrayList<Loja>();
 	private Loja loja = new Loja();
 
@@ -45,20 +46,31 @@ public class LojaBean {
 			addMessage("Erro: Loja " + this.loja.getNome()
 					+ " não foi cadastrado!");
 		}
-		
+
 		this.loja = new Loja();
-		
+
 		return "loja.xhtml";
 	}
-	
+
 	public List<Loja> getlistarLojas() throws Exception {
 		listLojas.clear();
 		LojaDAO dao = new LojaDAO();
 		listLojas = dao.listar();
-		if (listLojas == null) {
-			addMessage("NÃO EXISTEM LOJAS CADASTRADAS!");
-		}
 		return listLojas;
+	}
+
+	public void deletarLoja(Loja loja) throws Exception {
+		boolean db = false;
+		LojaDAO dao = new LojaDAO();
+
+		db = dao.deletar(loja);
+		
+		if (db == true && loja.getNome() != null) {
+			addMessage("Loja " + loja.getNome() + " deletada com sucesso!");
+		} else {
+			addMessage("Erro: Loja " + this.loja.getNome()
+					+ " não foi deletada!");
+		}
 	}
 
 }

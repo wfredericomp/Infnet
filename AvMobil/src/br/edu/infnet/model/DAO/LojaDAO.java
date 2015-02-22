@@ -55,4 +55,24 @@ public class LojaDAO {
 		return listLoja;
 	}
 
+	public boolean deletar(Loja loja) throws Exception {
+		boolean db = false;
+		try {
+			Connection con = Conexao.getConexao();
+			String sql = "delete from loja where id = ?";
+
+			PreparedStatement comando = con.prepareStatement(sql);
+
+			comando.setInt(1, loja.getId());
+
+			comando.executeUpdate();
+			db = true;
+
+		} catch (Exception e) {
+			db = false;
+			System.out.println(e.getMessage());
+		}
+		return db;
+	}
+
 }

@@ -11,13 +11,13 @@
 			<p>Loja de automóveis e motocicletas</p>
 		</ui:define>
 		<ui:define name="conteudo">
-
+			<br />
+			<h:messages id="mensagem" />
 			<h:form enctype="multipart/form-data” acceptcharset=“utf-8">
 				<br />
 				<fieldset>
 					<legend>Dados da loja</legend>
 
-					<h:messages id="mensagem" />
 					<br />
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Nome:" for="nome" />
@@ -57,16 +57,24 @@
 
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Nome" />
+								<h:outputText value="NOME" />
 							</f:facet>
 							<h:outputText value="#{lista.nome}" />
 						</h:column>
 
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Endereço" />
+								<h:outputText value="ENDEREÇO" />
 							</f:facet>
 							<h:outputText value="#{lista.endereco}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="DELETAR" />
+							</f:facet>
+							<h:commandButton value="remover" class="botaoLista"
+								actionListener="#{lojaBean.deletarLoja(lista)}" />
 						</h:column>
 
 					</h:dataTable>

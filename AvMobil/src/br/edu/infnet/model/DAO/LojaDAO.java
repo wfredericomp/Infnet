@@ -12,7 +12,7 @@ import br.edu.infnet.model.Loja;
 public class LojaDAO {
 
 	public boolean salvar(Loja loja) throws Exception {
-		//teste
+		
 		boolean db = false;
 		try {
 			Connection con = Conexao.getConexao();

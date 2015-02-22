@@ -58,7 +58,7 @@ public class Control {
             	System.out.println("    Preço: " + formatoMoeda.format((carrosLista.get(i)).getPreco()));
 
             	System.out.println("-------------------------------------------------");
-
+            	System.out.println("cls");
             }
         		
 	}	

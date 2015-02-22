@@ -2,6 +2,13 @@ package br.edu.infnet.model;
 
 import java.util.ArrayList;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+
+@ManagedBean
+@ViewScoped
+@SessionScoped
 public class Loja {
 	private String nome;
 	private String endereco;

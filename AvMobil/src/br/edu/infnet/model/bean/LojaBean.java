@@ -1,5 +1,8 @@
 package br.edu.infnet.model.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -11,6 +14,7 @@ import br.edu.infnet.model.DAO.LojaDAO;
 @ManagedBean
 @ViewScoped
 public class LojaBean {
+	static ArrayList<Loja> listLojas = new ArrayList<Loja>();
 	private Loja loja = new Loja();
 
 	public Loja getLoja() {
@@ -45,6 +49,16 @@ public class LojaBean {
 		this.loja = new Loja();
 		
 		return "loja.xhtml";
+	}
+	
+	public List<Loja> getlistarLojas() throws Exception {
+		listLojas.clear();
+		LojaDAO dao = new LojaDAO();
+		listLojas = dao.listar();
+		if (listLojas == null) {
+			addMessage("NÃO EXISTEM LOJAS CADASTRADAS!");
+		}
+		return listLojas;
 	}
 
 }

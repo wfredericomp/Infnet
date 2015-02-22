@@ -204,7 +204,8 @@ address {
 }
 
 .cabecalhos {
-	text-align: center;
+	text-align: justify;
+	padding: 6px;
 	font: 15px Arial, sans-serif;
 	font-weight: bold;
 	color: Snow;
@@ -213,15 +214,17 @@ address {
 
 /* Definição de estilos para coluna */
 .primeiro {
-	text-align: center;
+	padding: 3px;
+	text-align: justify;
 	font: 15px Arial, sans-serif;
 	background: #A2CD5A;
 }
 
 /* Definição de estilos para coluna */
 .ultimo {
+	padding: 3px;
 	font: 15px Arial, sans-serif;
-	text-align: center;
+	text-align: justify;
 	background: #BCEE68;
 }
 

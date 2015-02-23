@@ -70,7 +70,7 @@ public class CarroDAO {
 	public ArrayList<Carro> listarPorChassi(String chassi) throws Exception {
 		ArrayList<Carro> listCarro = new ArrayList<Carro>();
 		try {
-			String sql = "select *from carro where chassi = ?";
+			String sql = "select *from carro where chassi like %?%";
 			Connection con = Conexao.getConexao();
 			PreparedStatement comando = con.prepareStatement(sql);
 

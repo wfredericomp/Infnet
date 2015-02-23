@@ -67,8 +67,8 @@ public class CarroDAO {
 		return listCarro;
 	}
 
-	public ArrayList<Carro> listarPorChassi(String chassi) throws Exception {
-		ArrayList<Carro> listCarro = new ArrayList<Carro>();
+	public Carro listarPorChassi(String chassi) throws Exception {
+		Carro carro = new Carro();
 		try {
 			String sql = "select *from carro where chassi like %?%";
 			Connection con = Conexao.getConexao();
@@ -79,7 +79,6 @@ public class CarroDAO {
 			ResultSet rs = comando.executeQuery(sql);
 
 			while (rs.next()) {
-				Carro carro = new Carro();
 				carro.setId(rs.getInt("id"));
 				carro.setChassi(rs.getString("chassi"));
 				carro.setMontadora(rs.getString("montadora"));
@@ -89,15 +88,13 @@ public class CarroDAO {
 				carro.setMotor(rs.getString("motor"));
 				carro.setCambio(rs.getString("cambio"));
 				carro.setPreco(rs.getFloat("preco"));
-
-				listCarro.add(carro);
 			}
 			Conexao.closeConexao();
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return listCarro;
+		return carro;
 	}
 
 	public boolean deletar(Carro carro) throws Exception {

@@ -36,6 +36,7 @@ public class ControlPrincipal {
 	
 			case 2:
 				System.out.println("Pesquisar Chassi em construção");
+				ControlPesquisa.pesquisaChassi();
 				break;
 				
 			case 3:

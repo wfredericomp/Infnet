@@ -102,5 +102,14 @@ public class CarroBean {
 					+ " não foi deletado!");
 		}
 	}
+	
+	
+	public Carro listarPorChassi(Carro chassi) throws Exception{
+		Carro pojo = new Carro();
+		CarroDAO dao = new CarroDAO();
+		pojo = dao.listarPorChassi(chassi.getChassi());
+		this.carro = new Carro();
+		return pojo;
+	}
 
 }

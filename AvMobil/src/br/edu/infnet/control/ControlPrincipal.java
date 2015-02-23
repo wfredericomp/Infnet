@@ -20,9 +20,11 @@ public class ControlPrincipal {
 		System.out.println("\nSelecione uma opção:\n");
 		
 		System.out.println("1 - Listar Veículo.");
-		System.out.println("2 - Cadastrar Veículo.");
-		System.out.println("3 - Editar Veículo.");
-		System.out.println("4 - Excluir Veículo.");
+		System.out.println("2 - Pesquisar Chassi.");
+		System.out.println("3 - Cadastrar Veículo.");
+		System.out.println("4 - Editar Veículo.");
+		System.out.println("5 - Excluir Veículo.");
+		System.out.println("6 - Sair.");
 	   
 		opcao = sc.nextInt();
 		
@@ -33,16 +35,26 @@ public class ControlPrincipal {
 				break;
 	
 			case 2:
+				System.out.println("Pesquisar Chassi em construção");
+				break;
+				
+			case 3:
+				//System.out.println("Cadastrar em construção");
 				ControlCadastrar.cadCarro();
 				break;
-			case 3:
-				System.out.println("Edição em construção");
+				
+			case 4:
+				System.out.println("Editar em construção:");
 				voltarMenuPrincipal();
 				break;
-			case 4:
 				
+			case 5:
 				System.out.println("Exclusão em construção");
 				voltarMenuPrincipal();
+				break;
+				
+			case 6:
+				System.out.println("Saindo ...");
 				break;
 		}
 	}
@@ -63,8 +75,5 @@ public class ControlPrincipal {
 			else {
 				return;
 			}	
-		
-		
-		
 	}
 }

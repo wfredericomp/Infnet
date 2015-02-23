@@ -75,11 +75,12 @@ public class ControlCadastrar {
 		}
 		
 		if (opcao == 2) {
-			return;
+			ControlPrincipal.menuPrincipal();
 		}
 		
-		if ((opcao != 1) || (opcao != 2)) {
-			
+		if (opcao != 1 && opcao != 2) {
+			System.out.println("Opção inválida!");
+			return;			
 		}
 		
 	}

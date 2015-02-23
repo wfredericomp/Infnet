@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:composition template="_template.xhtml">
+
+		<ui:define name="titulo">
+			<p>CARROS</p>
+		</ui:define>
+		<ui:define name="conteudo">
+			<br />
+			<h:messages id="mensagem" />
+			<h:form enctype="multipart/form-data” acceptcharset=“utf-8">
+				<br />
+				<fieldset>
+					<legend>DADOS DO CARRO</legend>
+
+					<br />
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Nome:" for="nome" />
+						<h:inputText id="nome" value="#{lojaBean.loja.nome}"
+							required="true" requiredMessage="Nome obrigatório"
+							validatorMessage="Nome não pode ser superior a 45 e inferior a 3">
+							<f:validateLength maximum="45" minimum="3" />
+						</h:inputText>
+
+						<h:outputLabel value="Endereço:" for="endereco" />
+						<h:inputTextarea id="endereco" value="#{lojaBean.loja.endereco}"
+							required="true" requiredMessage="Endereço obrigatório"
+							validatorMessage="Endereço não pode ser superior a 255 e inferior a 8">
+							<f:validateLength maximum="255" minimum="8" />
+						</h:inputTextarea>
+						<br />
+					</h:panelGrid>
+				</fieldset>
+				<br />
+				<h:commandButton value="Gravar" class="botao"
+					actionListener="#{lojaBean.gravaLoja}" />
+				<br />
+			</h:form>
+			<br />
+			<f:view>
+				<h:form>
+					<h:dataTable value="#{lojaBean.listarLojas}" var="lista"
+						styleClass="tabela" headerClass="cabecalhos"
+						columnClasses="primeiro, ultimo, primeiro, ultimo">
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Código" />
+							</f:facet>
+							<h:outputText value="#{lista.id}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="NOME" />
+							</f:facet>
+							<h:outputText value="#{lista.nome}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="ENDEREÇO" />
+							</f:facet>
+							<h:outputText value="#{lista.endereco}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="DELETAR" />
+							</f:facet>
+							<h:commandButton value="remover" class="botaoLista"
+								actionListener="#{lojaBean.deletarLoja(lista)}" />
+						</h:column>
+
+					</h:dataTable>
+				</h:form>
+			</f:view>
+			<br />
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,7 +1,6 @@
 package br.edu.infnet.console;
 
 import br.edu.infnet.control.*;
-import java.util.Scanner;
 
 public class Console {
 

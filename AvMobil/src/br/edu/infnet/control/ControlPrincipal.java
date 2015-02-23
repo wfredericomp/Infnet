@@ -13,7 +13,6 @@ public class ControlPrincipal {
 	
 		Scanner sc = new Scanner(System.in);
 		int opcao = 0;
-	
 
 		System.out.println("#######################################################");
 		System.out.println("#######          BEM VINDO A AV MOBIL          ########");
@@ -27,7 +26,7 @@ public class ControlPrincipal {
 		System.out.println("4 - Excluir Veículo.");
 	   
 		opcao = sc.nextInt();
-	
+		
 		switch (opcao) {
 	
 			case 1:
@@ -39,24 +38,49 @@ public class ControlPrincipal {
 				ControlCadastrar.cadastroVeiculo();
 		
 				System.out.println("Deseja cadastrar outro veículo? S/N");
-				String respCadastro = sc.next();
+				opcao = sc.nextInt();
 		
-					if(respCadastro == "S" || respCadastro == "s") {
+					if(opcao == 1) {
 						ControlCadastrar.cadastroVeiculo();
 					}
 		
 					else {
-						ControlPrincipal.menuPrincipal();
+						menuPrincipal();
 					}
 				break;
 	
 			case 3:
 				System.out.println("Edição em construção");
-				break;	
-	
+				
+				System.out.println("Deseja voltar ao menu principal?");
+				System.out.println("1 - SIM");
+				System.out.println("2 - NÃO");
+				
+				opcao = sc.nextInt();
+		
+					if(opcao == 1) {
+						menuPrincipal();
+					}
+					
+					else {
+						break;
+					}
 			case 4:
 				System.out.println("Exclusão em construção");
-				break;	
+				
+				System.out.println("Deseja voltar ao menu principal?");
+				System.out.println("1 - SIM");
+				System.out.println("2 - NÃO");
+				
+				opcao = sc.nextInt();
+		
+					if(opcao == 1) {
+						menuPrincipal();
+					}
+					
+					else {
+						break;
+					}	
 		}
 	}
 }

@@ -11,7 +11,7 @@ public class ControlCadastrar {
 	
 	public static Scanner sc = new Scanner(System.in);
 	
-	public static void cadastroVeiculo() {
+	public static void cadCarro() {
 	
 		System.out.println("Informe os dados do veículo: \n");
 
@@ -63,8 +63,28 @@ public class ControlCadastrar {
 		} catch (SQLException e) {
 			System.out.println("Processo abortado: " + e);
 		}
+		
+		System.out.println("Deseja incluir outro carro?");
+		System.out.println("1 - SIM");
+		System.out.println("2 - NÃO");
+		
+		int opcao = sc.nextInt();
+		
+		if (opcao == 1) {
+			cadCarro();
+		}
+		
+		if (opcao == 2) {
+			return;
+		}
+		
+		if ((opcao != 1) || (opcao != 2)) {
+			
+		}
+		
 	}
 }
+
 
 
 

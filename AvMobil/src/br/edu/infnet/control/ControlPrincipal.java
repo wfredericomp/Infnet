@@ -3,16 +3,15 @@ package br.edu.infnet.control;
 import java.util.Scanner;
 
 public class ControlPrincipal {
-
+	
+	private static Scanner sc = new Scanner(System.in);
+	private static int opcao = 0;
 	
 	public ControlPrincipal() {
 	
 	}
 	
 	public static void menuPrincipal() {
-	
-		Scanner sc = new Scanner(System.in);
-		int opcao = 0;
 
 		System.out.println("#######################################################");
 		System.out.println("#######          BEM VINDO A AV MOBIL          ########");
@@ -34,55 +33,38 @@ public class ControlPrincipal {
 				break;
 	
 			case 2:
-				//System.out.println("Cadastro em construção");
-				ControlCadastrar.cadastroVeiculo();
-		
-				System.out.println("Deseja cadastrar outro veículo? S/N");
-				opcao = sc.nextInt();
-		
-					if(opcao == 1) {
-						ControlCadastrar.cadastroVeiculo();
-					}
-		
-					else {
-						menuPrincipal();
-					}
+				ControlCadastrar.cadCarro();
 				break;
-	
 			case 3:
 				System.out.println("Edição em construção");
-				
-				System.out.println("Deseja voltar ao menu principal?");
-				System.out.println("1 - SIM");
-				System.out.println("2 - NÃO");
-				
-				opcao = sc.nextInt();
-		
-					if(opcao == 1) {
-						menuPrincipal();
-					}
-					
-					else {
-						break;
-					}
+				voltarMenuPrincipal();
+				break;
 			case 4:
+				
 				System.out.println("Exclusão em construção");
-				
-				System.out.println("Deseja voltar ao menu principal?");
-				System.out.println("1 - SIM");
-				System.out.println("2 - NÃO");
-				
-				opcao = sc.nextInt();
-		
-					if(opcao == 1) {
-						menuPrincipal();
-					}
-					
-					else {
-						break;
-					}	
+				voltarMenuPrincipal();
+				break;
 		}
 	}
-}
-	
 
+	
+	private static void voltarMenuPrincipal() {
+
+		System.out.println("Deseja voltar ao menu principal?");
+		System.out.println("1 - SIM");
+		System.out.println("2 - NÃO");
+		
+		opcao = sc.nextInt();
+
+			if(opcao == 1) {
+				menuPrincipal();
+			}
+			
+			else {
+				return;
+			}	
+		
+		
+		
+	}
+}

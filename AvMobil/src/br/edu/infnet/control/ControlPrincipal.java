@@ -2,6 +2,7 @@ package br.edu.infnet.control;
 
 import java.util.Scanner;
 
+
 public class ControlPrincipal {
 	
 	private static Scanner sc = new Scanner(System.in);
@@ -36,8 +37,31 @@ public class ControlPrincipal {
 	
 			case 2:
 				System.out.println("Pesquisar Chassi em construção");
-				ControlPesquisa.pesquisaChassi();
-				break;
+				System.out.println("Selecione uma opção");
+				System.out.println("1 - Pesquisar por Carros");
+				System.out.println("2 - Pesquisar por Motos");
+				System.out.println("3 - Voltar ao menu Principal:");
+				
+				opcao = sc.nextInt();
+				
+					if (opcao == 1) {
+						ControlPesquisa.pesquisaChassiCarro();
+					}
+				
+					if (opcao == 2) {
+						ControlPesquisa.pesquisaChassiMoto();
+					}
+				
+					if (opcao == 3) {
+						menuPrincipal();
+					}
+					
+					if ( opcao != 1 && opcao != 2 && opcao != 3) {
+						System.out.println("Opção inválida, retornando ao menu principal.");
+						menuPrincipal();
+					}
+				
+					break;
 				
 			case 3:
 				//System.out.println("Cadastrar em construção");

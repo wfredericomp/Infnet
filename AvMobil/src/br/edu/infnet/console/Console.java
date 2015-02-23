@@ -23,7 +23,8 @@ public class Console {
 		System.out.println("4 - Excluir Veículo.");
 		   
 		opcao = sc.nextInt();
-				
+		sc.close();		
+		
 		switch (opcao) {
 		
 		case 1:

@@ -3,51 +3,41 @@ package br.edu.infnet.control;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Scanner;
 
+import br.edu.infnet.console.Teclado;
 import br.edu.infnet.database.Conexao;
 
 public class ControlCadastrar {
 	
-	private static Scanner sc;
-
 	public static void cadastroVeiculo() {
-	
-		sc = new Scanner(System.in);
-		String chassi;
-		String montadora;
-		String modelo;
-		String tipo;
-		String cor;
-		String motor;
-		String cambio;
-		float preco;
+		
+		String texto = null;
 		
 		System.out.println("Informe os dados do veículo:");
 		
 		System.out.println("Chassi:");
-		chassi = sc.next();
+		String chassi = Teclado.lerTexto(texto);
 		
 		System.out.println("Montadora:");
-		montadora = sc.nextLine();
+		String montadora = Teclado.lerTexto(texto);
 		
 		System.out.println("Modelo:");
-		modelo = sc.nextLine();
+		String modelo = Teclado.lerTexto(texto);
 		
 		System.out.println("Tipo:");
-		tipo = sc.nextLine();
+		String tipo = Teclado.lerTexto(texto);
 		
 		System.out.println("Cor:");
-		cor = sc.nextLine();
+		String cor = Teclado.lerTexto(texto);
 		
 		System.out.println("Motor:");
-		motor = sc.nextLine();
+		String motor = Teclado.lerTexto(texto);
 		
 		System.out.println("Câmbio:");
-		cambio = sc.nextLine();
+		String cambio = Teclado.lerTexto(texto);
 		
 		System.out.println("Preço:");
-		preco = sc.nextFloat();
+		float preco = Teclado.lerFloat(texto);
 		
 		try {
 			

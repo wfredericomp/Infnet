@@ -32,9 +32,13 @@ public class Teclado {
 		return Integer.parseInt(lerTexto(texto));
 	}	
 	
-	
 	public static double lerDouble(String texto){
 		//Chama o métodolerString e converte o resultado para double.
 		return Double.parseDouble(lerTexto(texto));		
+	}
+	
+	public static float lerFloat(String texto){
+		//Chama o métodolerString e converte o resultado para float.
+		return Float.parseFloat(lerTexto(texto));		
 	}
 }

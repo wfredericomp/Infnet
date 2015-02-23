@@ -72,5 +72,7 @@ public class LojaBean {
 					+ " não foi deletada!");
 		}
 	}
+	
+	
 
 }

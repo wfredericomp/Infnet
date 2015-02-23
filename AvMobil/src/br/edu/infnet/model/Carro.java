@@ -1,7 +1,14 @@
 package br.edu.infnet.model;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+
 import br.edu.infnet.model.colecoes.*;
 
+@ManagedBean
+@ViewScoped
+@SessionScoped
 public class Carro {
 	private Integer id;
 	private String chassi;

@@ -37,7 +37,7 @@ public class Teclado {
 		return Double.parseDouble(lerTexto(texto));		
 	}
 	
-	public static Float lerFloat(String texto){
+	public static float lerFloat(String texto){
 		//Chama o método lerString e converte o resultado para float.
 		return Float.parseFloat(lerTexto(texto));		
 	}

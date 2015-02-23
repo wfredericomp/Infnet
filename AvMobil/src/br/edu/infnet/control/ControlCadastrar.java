@@ -10,35 +10,18 @@ import br.edu.infnet.database.Conexao;
 public class ControlCadastrar {
 	
 	public static void cadastroVeiculo() {
-		
-		String texto = null;
-		
+			
 		System.out.println("Informe os dados do veículo:");
 		
-		System.out.println("Chassi:");
-		String chassi = Teclado.lerTexto(texto);
-		
-		System.out.println("Montadora:");
-		String montadora = Teclado.lerTexto(texto);
-		
-		System.out.println("Modelo:");
-		String modelo = Teclado.lerTexto(texto);
-		
-		System.out.println("Tipo:");
-		String tipo = Teclado.lerTexto(texto);
-		
-		System.out.println("Cor:");
-		String cor = Teclado.lerTexto(texto);
-		
-		System.out.println("Motor:");
-		String motor = Teclado.lerTexto(texto);
-		
-		System.out.println("Câmbio:");
-		String cambio = Teclado.lerTexto(texto);
-		
-		System.out.println("Preço:");
-		float preco = Teclado.lerFloat(texto);
-		
+		String chassi = Teclado.lerTexto("Chassi:");
+		String montadora = Teclado.lerTexto("Montadora: ");
+		String modelo = Teclado.lerTexto("Modelo: ");
+		String tipo = Teclado.lerTexto("Tipo: ");
+		String cor = Teclado.lerTexto("Cor: ");
+		String motor = Teclado.lerTexto("Motor: ");
+		String cambio = Teclado.lerTexto("Câmbio: ");
+		float preco = Teclado.lerFloat("Preço: ");
+	
 		try {
 			
 			Connection con = Conexao.getConexao();

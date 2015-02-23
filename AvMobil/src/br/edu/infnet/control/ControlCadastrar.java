@@ -4,15 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.edu.infnet.console.Teclado;
 import br.edu.infnet.database.Conexao;
 
 public class ControlCadastrar {
 	
 	public static void cadastroVeiculo() {
 			
-		System.out.println("Informe os dados do veículo:");
-		
+		System.out.println("Informe os dados do veículo: \n");
+
 		String chassi = Teclado.lerTexto("Chassi:");
 		String montadora = Teclado.lerTexto("Montadora: ");
 		String modelo = Teclado.lerTexto("Modelo: ");
@@ -20,7 +19,7 @@ public class ControlCadastrar {
 		String cor = Teclado.lerTexto("Cor: ");
 		String motor = Teclado.lerTexto("Motor: ");
 		String cambio = Teclado.lerTexto("Câmbio: ");
-		float preco = Teclado.lerFloat("Preço: ");
+		Float preco = Teclado.lerFloat("Preço: ");
 	
 		try {
 			

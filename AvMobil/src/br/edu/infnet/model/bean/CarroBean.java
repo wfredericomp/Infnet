@@ -9,9 +9,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import br.edu.infnet.model.Carro;
-import br.edu.infnet.model.Loja;
 import br.edu.infnet.model.DAO.CarroDAO;
-import br.edu.infnet.model.DAO.LojaDAO;
 import br.edu.infnet.model.colecoes.TipoCarro;
 
 @ManagedBean
@@ -72,16 +70,14 @@ public class CarroBean {
 		CarroDAO dao = new CarroDAO();
 
 		db = dao.salvar(carro);
-
+		String carrodr = this.carro.getModelo();
 		if (db == true) {
-			addMessage("Carro " + this.carro.getModelo()
-					+ " cadastrado com sucesso!");
+			this.carro = new Carro();
+			addMessage("Carro " + carrodr + " cadastrado com sucesso!");
 		} else {
 			addMessage("Erro: Carro " + this.carro.getModelo()
 					+ " não foi cadastrado!");
 		}
-
-		this.carro = new Carro();
 
 		return "carro.xhtml";
 	}

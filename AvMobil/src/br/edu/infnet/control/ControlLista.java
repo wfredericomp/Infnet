@@ -28,7 +28,7 @@ public class ControlLista {
                 carro.setChassi(srs.getString("chassi"));
                 carro.setMontadora(srs.getString("montadora"));
                 carro.setModelo(srs.getString("modelo"));
-                //carro.setTipo(srs.getTipoCarro("tipo"));
+                //carro.setTipo(srs.getString("tipo"));
                 carro.setCor(srs.getString("cor"));
                 carro.setMotor(srs.getString("motor"));
                 carro.setCambio(srs.getString("cambio"));

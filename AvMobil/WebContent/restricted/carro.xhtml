@@ -47,7 +47,7 @@
 						</h:inputText>
 
 						<h:outputLabel value="Selecione um tipo de carro:" for="tipo" />
-						<h:selectOneMenu value="#{carroBean.carro.strTipo}" id="categoria">
+						<h:selectOneMenu value="#{carroBean.carro.strTipo}" id="tipo">
 							<f:selectItems value="#{carroBean.tipoCarros}" var="tipos"
 								itemLabel="#{tipos}" itemValue="#{tipos}" />
 						</h:selectOneMenu>
@@ -75,7 +75,8 @@
 
 						<h:outputLabel value="Preço:" for="preco" />
 						<h:inputText id="preco" value="#{carroBean.carro.preco}"
-							required="true" requiredMessage="Preço obrigatório" styleClass="valor-monetario">
+							required="true" requiredMessage="Preço obrigatório">
+							<f:convertNumber pattern="#########,##0.00"></f:convertNumber>
 						</h:inputText>
 
 						<br />
@@ -87,18 +88,12 @@
 				<br />
 			</h:form>
 
-			<script>
-				jQuery(function($) {
-					$("input.valor-monetario").mask("#.##0,00");
-				});
-			</script>
-
 			<br />
 			<f:view>
 				<h:form>
 					<h:dataTable value="#{carroBean.listarCarros}" var="lista"
 						styleClass="tabela" headerClass="cabecalhos"
-						columnClasses="primeiro, ultimo, primeiro, ultimo">
+						columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro">
 
 						<h:column>
 							<f:facet name="header">
@@ -160,7 +155,9 @@
 							<f:facet name="header">
 								<h:outputText value="PREÇO" />
 							</f:facet>
-							<h:outputText value="#{lista.preco}" />
+							<h:outputText value="#{lista.preco}">
+								<f:convertNumber type="currency" />
+							</h:outputText>
 						</h:column>
 
 						<h:column>

@@ -19,7 +19,7 @@ public class ControlCadastrar {
 		
 		System.out.println("Chassi:");
 		chassi = sc.next();
-		System.out.println(chassi);
+		sc.close();
 					
 		try {
 			

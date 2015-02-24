@@ -70,13 +70,10 @@ public class CarroDAO {
 	public Carro listarPorChassi(String chassi) throws Exception {
 		Carro carro = new Carro();
 		try {
-			String sql = "select *from carro where chassi like %?%";
-			Connection con = Conexao.getConexao();
-			PreparedStatement comando = con.prepareStatement(sql);
-
-			comando.setString(1, chassi);
-
-			ResultSet rs = comando.executeQuery(sql);
+			Statement st = Conexao.getConexao().createStatement();
+			ResultSet rs = st
+					.executeQuery("SELECT * FROM carro WHERE chassi = '"
+							+ chassi + "'");
 
 			while (rs.next()) {
 				carro.setId(rs.getInt("id"));
@@ -89,10 +86,11 @@ public class CarroDAO {
 				carro.setCambio(rs.getString("cambio"));
 				carro.setPreco(rs.getFloat("preco"));
 			}
+			System.out.println("passou banco");
 			Conexao.closeConexao();
 
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("Erro: Não foi encontrado o carro!");
 		}
 		return carro;
 	}

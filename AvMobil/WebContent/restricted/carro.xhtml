@@ -1,29 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
-	<h:outputScript name="jquery.min.js" library="js" />
-	<h:outputScript name="jquery.maskMoney.js" library="js" />
-</h:head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <h:body>
 	<ui:composition template="_template.xhtml">
-
-		<ui:define name="titulo">
-			<p>CARROS</p>
-		</ui:define>
 		<ui:define name="conteudo">
-			<br />
-			<h:messages id="mensagem" />
-			<h:form enctype="multipart/form-data” acceptcharset=“utf-8"
-				prependId="false">
+			<h:messages class="mensagem" />
+			<h:form prependId="false">
 				<br />
 				<fieldset>
 					<legend>DADOS DO CARRO</legend>
 
-					<br />
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Chassi:" for="chassi" />
 						<h:inputText id="chassi" value="#{carroBean.carro.chassi}"
@@ -87,17 +77,26 @@
 					actionListener="#{carroBean.gravaCarro}" />
 				<br />
 			</h:form>
+			<br />
+
+			<fieldset>
+				<h:form prependId="false">
+					<h:outputLabel value="PESQUISAR CHASSI: " for="busca" />
+					<h:inputText value="#{carroBean.carro.chassi}" id="busca" />
+					<h:commandButton value=" BUSCAR " class="botaoBusca" actionListener="#{carroBean.listarPorChassi}" />
+				</h:form>
+			</fieldset>
 
 			<br />
 			<f:view>
 				<h:form>
 					<h:dataTable value="#{carroBean.listarCarros}" var="lista"
 						styleClass="tabela" headerClass="cabecalhos"
-						columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro">
+						columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo">
 
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Código" />
+								<h:outputText value="CÓD" />
 							</f:facet>
 							<h:outputText value="#{lista.id}" />
 						</h:column>
@@ -162,7 +161,7 @@
 
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="DELETAR" />
+								<h:outputText value="DEL" />
 							</f:facet>
 							<h:commandButton value="remover" class="botaoLista"
 								actionListener="#{carroBean.deletarCarro(lista)}" />

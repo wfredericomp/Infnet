@@ -70,7 +70,7 @@ public class ControlPrincipal {
 				
 			case 4:
 				System.out.println("Editar em construção:");
-				voltarMenuPrincipal();
+				ControlEditar.editarCarro();
 				break;
 				
 			case 5:

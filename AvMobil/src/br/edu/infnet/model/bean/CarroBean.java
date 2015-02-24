@@ -84,7 +84,7 @@ public class CarroBean {
 		return "carro.xhtml";
 	}
 
-	public List<Carro> getListarCarros() throws Exception {
+	public List<Carro> getListarEstoquedeCarros() throws Exception {
 		listCarros.clear();
 		CarroDAO dao = new CarroDAO();
 

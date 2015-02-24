@@ -82,6 +82,7 @@ public class ControlPesquisa {
 			String sql = "SELECT * FROM moto WHERE chassi = '" + chassi + "'"; 
 	    	PreparedStatement comando = con.prepareStatement(sql);
 			ResultSet srs = comando.executeQuery();
+   			Conexao.closeConexao();
 	    
 		    	while (srs.next()) {
 		    		
@@ -112,8 +113,6 @@ public class ControlPesquisa {
 	                	System.out.println("-------------------------------------------------");	
 	                }
 	                
-		   			Conexao.closeConexao();
-	       
 			} catch (SQLException e) {
 	            	System.out.println(e);
 	       		}

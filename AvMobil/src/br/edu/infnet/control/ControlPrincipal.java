@@ -29,7 +29,7 @@ public class ControlPrincipal {
 		System.out.println("6 - Sair.");
 	   
 		opcao = sc.nextInt();
-		
+				
 		switch (opcao) {
 	
 			case 1:
@@ -173,23 +173,4 @@ public class ControlPrincipal {
 				break;
 		}
 	}
-
-	
-/*	private static void voltarMenuPrincipal() {
-
-		System.out.println("Deseja voltar ao menu principal?");
-		System.out.println("1 - SIM");
-		System.out.println("2 - NÃO");
-		
-		opcao = sc.nextInt();
-
-			if(opcao == 1) {
-				menuPrincipal();
-			}
-			
-				else {
-					return;
-				}	
-	} 
-*/
 }

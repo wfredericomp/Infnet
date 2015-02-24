@@ -20,7 +20,7 @@ public class ControlPesquisa {
 		
 	}
 	
-	public static void pesquisaChassiCarro() {
+	public static ArrayList<Carro> pesquisaChassiCarro() {
 		
 		ArrayList<Carro> carroLista = new ArrayList<Carro>();
 
@@ -65,12 +65,12 @@ public class ControlPesquisa {
 		   			Conexao.closeConexao();
 	       
 			} catch (SQLException e) {
-	            	return;
+	            	return null;
 	       		}
+		return carroLista;
 	}	
 	
-	
-	public static void pesquisaChassiMoto() {
+	public static ArrayList<Motocicleta> pesquisaChassiMoto() {
 		
 		ArrayList<Motocicleta> motoLista = new ArrayList<Motocicleta>();
 
@@ -79,7 +79,7 @@ public class ControlPesquisa {
 
 		try {     
 			Connection con = Conexao.getConexao();
-			String sql = "SELECT * FROM motocicleta WHERE chassi = '" + chassi + "'"; 
+			String sql = "SELECT * FROM moto WHERE chassi = '" + chassi + "'"; 
 	    	PreparedStatement comando = con.prepareStatement(sql);
 			ResultSet srs = comando.executeQuery();
 	    
@@ -115,8 +115,9 @@ public class ControlPesquisa {
 		   			Conexao.closeConexao();
 	       
 			} catch (SQLException e) {
-	            	return;
+	            	System.out.println(e);
 	       		}
+		return motoLista;
 	}	
 }	
 	

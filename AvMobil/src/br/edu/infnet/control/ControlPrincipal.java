@@ -74,9 +74,31 @@ public class ControlPrincipal {
 				break;
 				
 			case 5:
-				System.out.println("Exclusão em construção");
-				ControlExcluir.excluirCArro();
-				break;
+				//System.out.println("Exclusão em construção");
+				System.out.println("Selecione uma opção");
+				System.out.println("1 - Excluir Carros");
+				System.out.println("2 - Excluir Motos");
+				System.out.println("3 - Voltar ao menu Principal:");
+				
+				opcao = sc.nextInt();
+				
+					if (opcao == 1) {
+						ControlExcluir.excluirCarro();
+					}
+				
+						if (opcao == 2) {
+							ControlExcluir.excluirMoto();
+						}
+				
+							if (opcao == 3) {
+								menuPrincipal();
+							}
+					
+								if ( opcao != 1 && opcao != 2 && opcao != 3) {
+									System.out.println("Opção inválida, retornando ao menu principal.");
+									menuPrincipal();
+								}
+					break;
 				
 			case 6:
 				System.out.println("Saindo ...");

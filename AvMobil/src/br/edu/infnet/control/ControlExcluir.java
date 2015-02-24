@@ -21,7 +21,7 @@ public class ControlExcluir {
 		
 	}
 	
-		public static void excluirCArro() {
+		public static void excluirCarro() {
 			
 			ArrayList<Carro> carroLista = new ArrayList<Carro>();
 
@@ -101,5 +101,87 @@ public class ControlExcluir {
 		            	return;
 		       		}
 		}	
+
+		public static void excluirMoto() {
+			
+			ArrayList<Motocicleta> motoLista = new ArrayList<Motocicleta>();
+
+			System.out.println("Informe o Chassi: ");
+			String chassi = sc.next().toString();
+
+			try {     
+				Connection con = Conexao.getConexao();
+				String sql = "SELECT * FROM moto WHERE chassi = '" + chassi + "'"; 
+		    	PreparedStatement comando = con.prepareStatement(sql);
+				ResultSet srs = comando.executeQuery();
+		    
+			    	while (srs.next()) {
+			    		
+			    		Motocicleta moto = new Motocicleta();
+			    		
+			    		moto.setChassi(srs.getString("chassi"));
+		                moto.setMontadora(srs.getString("montadora"));
+		                moto.setModelo(srs.getString("modelo"));
+		                //moto.setTipo(srs.getString("tipo"));
+		                moto.setCor(srs.getString("cor"));
+		                moto.setCilindrada(srs.getInt("motor"));
+		                moto.setCapacidadeTanque(srs.getInt("cambio"));
+		                moto.setPreco(srs.getFloat("preco"));
+		                       
+		                motoLista.add(moto);        
+			    	}
+			    		
+			    		if (motoLista.size() > 0) {
+			    	
+			    			for(int i=0; i<motoLista.size();i++) {
+			    				System.out.println("Foi encontrado o seguinte veículo: ");
+			    				System.out.println((i+1) + " - Modelo: " + (motoLista.get(i)).getModelo());
+			    				System.out.println("    Montadora: " + (motoLista.get(i)).getMontadora());
+			    				System.out.println("    Tipo: " + (motoLista.get(i)).getTipo());
+			    				System.out.println("    Cor: " + (motoLista.get(i)).getCor());
+			    				System.out.println("    Cilindrada: " + (motoLista.get(i)).getCilindrada());
+			    				System.out.println("    Capacidade Tanque: " + (motoLista.get(i)).getCapacidadeTanque());
+			    				System.out.println("    Preço: " + formatoMoeda.format((motoLista.get(i)).getPreco()));
+			    				System.out.println("-------------------------------------------------");	
+			    			}
+			    			
+			    				System.out.println("Deseja Excluir este veículo?");
+			    					System.out.println("1 - SIM");
+			    					System.out.println("2 - NÃO");
+			    						
+			    						int opcao = sc.nextInt();
+			    					
+			    							if (opcao ==1) {
+			    								try { 
+			    									sql = "DELETE FROM moto WHERE chassi = '" + chassi + "'"; 
+			    									Statement st = con.createStatement();
+			    									st.executeUpdate(sql);
+			    									
+			    									System.out.println("Veículo excluído com sucesso!");
+			    									
+			    								} catch (SQLException e) {
+			    									System.out.println("Erro ao tentar excluir veículo:" + e);
+			    								  }
+			    							}
+			    								
+			    								if (opcao == 2) {
+			    									System.out.println("Retonando ao menu principal:");
+			    									ControlPrincipal.menuPrincipal();
+			    								}
+			    									if (opcao != 1 && opcao != 2) {
+			    										System.out.println("Opção Inválida, retornando ao menu principal.");
+			    									}
+			    		}
+			    		
+			    			else {
+			    				System.out.println("Nenhum veículo encontrado: ");
+			    			}
+			    		
+			   			Conexao.closeConexao();
+		       
+				} catch (SQLException e) {
+		            	return;
+		       	  }
+		}
 }
 	

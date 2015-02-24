@@ -88,7 +88,7 @@ public class ControlListar {
                    	return;
        			}
                      
-           		System.out.println("\n Estes são nossos carros disponíveis: \n");
+           		System.out.println("\n Estes são nossos veículos disponíveis: \n");
            		   		
                 for(int i=0; i<motoLista.size();i++) {
 
@@ -96,8 +96,8 @@ public class ControlListar {
                    	System.out.println("    Montadora: " + (motoLista.get(i)).getMontadora().toUpperCase());
                    	System.out.println("    Tipo: " + (motoLista.get(i)).getTipo());
                    	System.out.println("    Cor: " + (motoLista.get(i)).getCor().toUpperCase());
-                   	System.out.println("    Câmbio: " + (motoLista.get(i)).getCilindrada());
-                   	System.out.println("    Motor: " + (motoLista.get(i)).getCapacidadeTanque());
+                   	System.out.println("    Cilindrada: " + (motoLista.get(i)).getCilindrada());
+                   	System.out.println("    Capacidade Tanque: " + (motoLista.get(i)).getCapacidadeTanque());
                    	System.out.println("    Preço: " + formatoMoeda.format((motoLista.get(i)).getPreco()));
 
                    	System.out.println("-------------------------------------------------");

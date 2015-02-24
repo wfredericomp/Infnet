@@ -14,9 +14,10 @@ public class ControlPrincipal {
 	
 	public static void menuPrincipal() {
 
-		System.out.println("#######################################################");
-		System.out.println("#######          BEM VINDO A AV MOBIL          ########");
-		System.out.println("#######################################################");
+		System.out.println(" ______________________________________________________");
+		System.out.println("|                                                      |");
+		System.out.println("|                 BEM VINDO A AV MOBIL                 |");
+		System.out.println("|______________________________________________________|");
 
 		System.out.println("\nSelecione uma opção:\n");
 		
@@ -32,11 +33,34 @@ public class ControlPrincipal {
 		switch (opcao) {
 	
 			case 1:
-				ControlListar.listaCarros();
-				break;
+				System.out.println("Selecione uma opção");
+				System.out.println("1 - Listar todos os Carros");
+				System.out.println("2 - Listar todas as Motos");
+				System.out.println("3 - Voltar ao menu Principal:");
+				
+				opcao = sc.nextInt();
+				
+					if (opcao == 1) {
+						ControlListar.listaCarros();
+					}
+				
+						if (opcao == 2) {
+							ControlListar.listaMotocicletas();
+						}
+				
+							if (opcao == 3) {
+								menuPrincipal();
+							}
+					
+								if ( opcao != 1 && opcao != 2 && opcao != 3) {
+									System.out.println("Opção inválida, retornando ao menu principal.");
+									menuPrincipal();
+								}
+				
+					break;
 	
 			case 2:
-				System.out.println("Pesquisar Chassi em construção");
+				//System.out.println("Pesquisar Chassi em construção");
 				System.out.println("Selecione uma opção");
 				System.out.println("1 - Pesquisar por Carros");
 				System.out.println("2 - Pesquisar por Motos");
@@ -65,13 +89,57 @@ public class ControlPrincipal {
 				
 			case 3:
 				//System.out.println("Cadastrar em construção");
-				ControlCadastrar.cadCarro();
-				break;
+				System.out.println("Selecione uma opção");
+				System.out.println("1 - Cadastrar Carros:");
+				System.out.println("2 - Cadastrar Motos:");
+				System.out.println("3 - Voltar ao menu Principal:");
+				
+				opcao = sc.nextInt();
+				
+					if (opcao == 1) {
+						ControlCadastrar.cadastrarCarro();
+					}
+				
+						if (opcao == 2) {
+							ControlCadastrar.cadastrarMoto();
+						}
+				
+							if (opcao == 3) {
+								menuPrincipal();
+							}
+					
+								if ( opcao != 1 && opcao != 2 && opcao != 3) {
+									System.out.println("Opção inválida, retornando ao menu principal.");
+									menuPrincipal();
+								}
+					break;
 				
 			case 4:
-				System.out.println("Editar em construção:");
-				ControlEditar.editarCarro();
-				break;
+				//System.out.println("Editar em construção:");
+				System.out.println("Selecione uma opção");
+				System.out.println("1 - Editar Carros");
+				System.out.println("2 - Editar Motos");
+				System.out.println("3 - Voltar ao menu Principal:");
+				
+				opcao = sc.nextInt();
+				
+					if (opcao == 1) {
+						ControlEditar.editarCarro();
+					}
+				
+						if (opcao == 2) {
+							ControlEditar.editarMoto();
+						}
+				
+							if (opcao == 3) {
+								menuPrincipal();
+							}
+					
+								if ( opcao != 1 && opcao != 2 && opcao != 3) {
+									System.out.println("Opção inválida, retornando ao menu principal.");
+									menuPrincipal();
+								}
+					break;
 				
 			case 5:
 				//System.out.println("Exclusão em construção");
@@ -107,7 +175,7 @@ public class ControlPrincipal {
 	}
 
 	
-	private static void voltarMenuPrincipal() {
+/*	private static void voltarMenuPrincipal() {
 
 		System.out.println("Deseja voltar ao menu principal?");
 		System.out.println("1 - SIM");
@@ -122,5 +190,6 @@ public class ControlPrincipal {
 				else {
 					return;
 				}	
-	}
+	} 
+*/
 }

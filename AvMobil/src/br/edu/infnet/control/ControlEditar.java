@@ -65,7 +65,7 @@ public class ControlEditar {
 			    				System.out.println("-------------------------------------------------");	
 			    			}
 			    			
-			    				System.out.println("Deseja Editarr este veículo?");
+			    				System.out.println("Deseja Editar este veículo?");
 			    					System.out.println("1 - SIM");
 			    					System.out.println("2 - NÃO");
 			    						

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import br.edu.infnet.database.Conexao;
 import br.edu.infnet.model.*;
 
-public class ControlLista {
+public class ControlListar {
 
 	static NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(); 		
 	

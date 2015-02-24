@@ -32,7 +32,7 @@ public class ControlPrincipal {
 		switch (opcao) {
 	
 			case 1:
-				ControlLista.listaCarros();
+				ControlListar.listaCarros();
 				break;
 	
 			case 2:

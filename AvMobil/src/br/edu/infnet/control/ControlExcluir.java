@@ -174,7 +174,8 @@ public class ControlExcluir {
 			    		}
 			    		
 			    			else {
-			    				System.out.println("Nenhum veículo encontrado: ");
+			    				System.out.println("Nenhum veículo encontrado, retornando ao menu principal.");
+			    				ControlPrincipal.menuPrincipal();
 			    			}
 			    		
 			   			Conexao.closeConexao();

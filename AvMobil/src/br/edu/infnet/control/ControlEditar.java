@@ -44,6 +44,8 @@ public class ControlEditar {
 			    								
 			    								carro.setChassi(chassi);
 			    								
+			    								Scanner sc = new Scanner(System.in);
+			    																
 			    								System.out.println("Montadora:");
 			    								carro.setMontadora(sc.nextLine().toUpperCase());
 			    								
@@ -72,8 +74,8 @@ public class ControlEditar {
 			    								
 			    								 for(int i=0; i<carroLista.size();i++) {
 
-			    					                	System.out.println((i+1) + " - Modelo: " + (carroLista.get(i)).getModelo());
-			    					                	System.out.println("    Montadora: " + (carroLista.get(i)).getMontadora());
+			    					                	System.out.println((i+1) + " - Montadora: " + (carroLista.get(i)).getMontadora());
+			    					                	System.out.println("    Modelo: " + (carroLista.get(i)).getModelo());
 			    					                	System.out.println("    Tipo: " + (carroLista.get(i)).getTipo());
 			    					                	System.out.println("    Cor: " + (carroLista.get(i)).getCor());
 			    					                	System.out.println("    Motor: " + (carroLista.get(i)).getMotor());
@@ -106,9 +108,7 @@ public class ControlEditar {
 			    										 		Statement st = con.createStatement();
 			    										 		st.executeUpdate(sql);
 			    										 		Conexao.closeConexao();
-			    									
-			    										 			System.out.println("Veículo atualizado com sucesso!");
-			    									
+			    												    									
 			    										 				for(int i=0; i<carroLista.size();i++) {
 			    										 					System.out.println("Veículo atualizado com os seguintes dados: ");
 			    										 					System.out.println((i+1) + " - Modelo: " + carroLista.get(0).getModelo());
@@ -127,13 +127,13 @@ public class ControlEditar {
 			    									 }
 			    								 }
 			    								 
-			    								if (opcao == 2) {
-			    									System.out.println("Retonando ao menu principal:");
-			    									ControlPrincipal.menuPrincipal();
-			    								}
-			    								if (opcao != 1 && opcao != 2) {
-			    										System.out.println("Opção Inválida, retornando ao menu principal.");
-			    									}
+			    								 			if (opcao == 2) {
+			    								 				System.out.println("Retonando ao menu principal:");
+			    								 				ControlPrincipal.menuPrincipal();
+			    								 			}
+			    								 			if (opcao != 1 && opcao != 2) {
+			    								 					System.out.println("Opção Inválida, retornando ao menu principal.");
+			    								 				}
 			    							}
 		}
 
@@ -154,42 +154,46 @@ public class ControlEditar {
 			    					
 			    							if (opcao ==1) {
 			    								
-			    								//Motocicleta moto = new Motocicleta();
+			    								Motocicleta moto = new Motocicleta();
+			    								
+			    								Scanner sc = new Scanner(System.in);
 			    								
 			    								System.out.println("Editando o veículo com chassi " + chassi + ":");
 			    								
 			    								System.out.println("Montadora:");
-			    								String montadora = sc.nextLine().toUpperCase();
+			    								moto.setMontadora(sc.nextLine().toUpperCase());
 			    								
 			    								System.out.println("Modelo:");
-			    								String modelo = sc.nextLine().toUpperCase();
+			    								moto.setModelo(sc.nextLine().toUpperCase());
 			    								
 			    								System.out.println("Tipo:");
-			    								String tipo = sc.nextLine().toUpperCase();
+			    								//moto.setTipo(sc.nextLine().toUpperCase());
 			    								
 			    								System.out.println("Cor:");
-			    								String cor = sc.nextLine().toUpperCase();
+			    								moto.setCor(sc.nextLine().toUpperCase());
 			    								
 			    								System.out.println("Cilindrada:");
-			    								int cilindrada = sc.nextInt();
+			    								moto.setCilindrada(sc.nextInt());
 			    								
 			    								System.out.println("Capacidade Tanque:");
-			    								int capacidadeTanque = sc.nextInt();
+			    								moto.setCapacidadeTanque(sc.nextInt());
 			    								
 			    								System.out.println("Valor:");
-			    								float preco = sc.nextFloat();
+			    								moto.setPreco(sc.nextFloat());
 			    								
+			    								motoLista.clear();
+			    								motoLista.add(moto);
 			    									try { 
 				    								
 			    										String sql = "UPDATE moto" + 
-			    												" set montadora='" + montadora + "'" +
-			    												", modelo='" + modelo + "'" +
-			    												", tipo='" + tipo + "'" +
-			    												", cor='" + cor + "'" +
-			    												", cilindrada='" + cilindrada + "'" +
-			    												", capacidade_tanque='" + capacidadeTanque + "'" +
-			    												", preco=" + preco +
-			    												" WHERE chassi='" + chassi +"'";    								
+			    												" set montadora='" + moto.getMontadora() + "'" +
+			    												", modelo='" + moto.getModelo() + "'" +
+			    												", tipo='" + moto.getTipo() + "'" +
+			    												", cor='" + moto.getCor() + "'" +
+			    												", cilindrada='" + moto.getCilindrada() + "'" +
+			    												", capacidade_tanque='" + moto.getCapacidadeTanque() + "'" +
+			    												", preco=" + moto.getPreco() +
+			    												" WHERE chassi='" + chassi + "'";    								
 				    								
 			    										Connection con = Conexao.getConexao();
 			    										Statement st = con.createStatement();
@@ -200,13 +204,13 @@ public class ControlEditar {
 			    									
 			    										for(int i=0; i<motoLista.size();i++) {
 			    											System.out.println("Veículo atualizado com os seguintes dados: ");
-			    											System.out.println((i+1) + " - Modelo: " + modelo);
-			    											System.out.println("    Montadora: " + montadora);
-			    											System.out.println("    Tipo: " + tipo);
-			    											System.out.println("    Cor: " + cor);
-			    											System.out.println("    Capacidade Tanque: " + cilindrada);
-			    											System.out.println("    Capacidade Tanque: " + capacidadeTanque);
-			    											System.out.println("    Preço: " + formatoMoeda.format(preco));
+			    											System.out.println((i+1) + " - Montadora: " + moto.getMontadora());
+			    											System.out.println("    Modelo: " + moto.getModelo());
+			    											System.out.println("    Tipo: " + moto.getTipo());
+			    											System.out.println("    Cor: " + moto.getCor());
+			    											System.out.println("    Capacidade Tanque: " + moto.getCilindrada());
+			    											System.out.println("    Capacidade Tanque: " + moto.getCapacidadeTanque());
+			    											System.out.println("    Preço: " + formatoMoeda.format(moto.getPreco()));
 			    											System.out.println("-------------------------------------------------");	
 			    										}
 			    									

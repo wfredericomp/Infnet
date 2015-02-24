@@ -48,18 +48,18 @@ public class ControlPrincipal {
 						ControlPesquisa.pesquisaChassiCarro();
 					}
 				
-					if (opcao == 2) {
-						ControlPesquisa.pesquisaChassiMoto();
-					}
+						if (opcao == 2) {
+							ControlPesquisa.pesquisaChassiMoto();
+						}
 				
-					if (opcao == 3) {
-						menuPrincipal();
-					}
+							if (opcao == 3) {
+								menuPrincipal();
+							}
 					
-					if ( opcao != 1 && opcao != 2 && opcao != 3) {
-						System.out.println("Opção inválida, retornando ao menu principal.");
-						menuPrincipal();
-					}
+								if ( opcao != 1 && opcao != 2 && opcao != 3) {
+									System.out.println("Opção inválida, retornando ao menu principal.");
+									menuPrincipal();
+								}
 				
 					break;
 				
@@ -75,7 +75,7 @@ public class ControlPrincipal {
 				
 			case 5:
 				System.out.println("Exclusão em construção");
-				voltarMenuPrincipal();
+				ControlExcluir.excluirCArro();
 				break;
 				
 			case 6:
@@ -97,8 +97,8 @@ public class ControlPrincipal {
 				menuPrincipal();
 			}
 			
-			else {
-				return;
-			}	
+				else {
+					return;
+				}	
 	}
 }

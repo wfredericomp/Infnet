@@ -74,15 +74,14 @@ public class ControlCadastrar {
 			cadCarro();
 		}
 		
-		if (opcao == 2) {
-			ControlPrincipal.menuPrincipal();
-		}
+			if (opcao == 2) {
+				ControlPrincipal.menuPrincipal();
+			}
 		
-		if (opcao != 1 && opcao != 2) {
-			System.out.println("Opção inválida!");
-			return;			
-		}
-		
+				if (opcao != 1 && opcao != 2) {
+					System.out.println("Opção inválida!");
+					return;			
+				}
 	}
 }
 

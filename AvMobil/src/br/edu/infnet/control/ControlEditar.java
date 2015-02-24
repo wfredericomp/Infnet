@@ -150,7 +150,7 @@ public class ControlEditar {
 		       		}
 		}	
 
-		public static void excluirMoto() {
+		public static void editarMoto() {
 			
 			ArrayList<Motocicleta> motoLista = new ArrayList<Motocicleta>();
 
@@ -159,7 +159,7 @@ public class ControlEditar {
 
 			try {     
 				Connection con = Conexao.getConexao();
-				String sql = "SELECT * FROM moto WHERE chassi = '" + chassi + "'"; 
+				String sql = "SELECT * FROM carro WHERE chassi = '" + chassi + "'"; 
 		    	PreparedStatement comando = con.prepareStatement(sql);
 				ResultSet srs = comando.executeQuery();
 		    
@@ -193,47 +193,89 @@ public class ControlEditar {
 			    				System.out.println("-------------------------------------------------");	
 			    			}
 			    			
-			    				System.out.println("Deseja Excluir este veículo?");
+			    				System.out.println("Deseja Editarr este veículo?");
 			    					System.out.println("1 - SIM");
 			    					System.out.println("2 - NÃO");
 			    						
 			    						int opcao = sc.nextInt();
 			    					
 			    							if (opcao ==1) {
+			    								System.out.println("Editando o veículo com chassi " + chassi + ":");
+			    								
+			    								System.out.println("Montadora:");
+			    								String montadora = sc.nextLine().toUpperCase();
+			    								
+			    								System.out.println("Modelo:");
+			    								String modelo = sc.nextLine().toUpperCase();
+			    								
+			    								System.out.println("Tipo:");
+			    								String tipo = sc.nextLine().toUpperCase();
+			    								
+			    								System.out.println("Cor:");
+			    								String cor = sc.nextLine().toUpperCase();
+			    								
+			    								System.out.println("Cilindrada:");
+			    								int cilindrada = sc.nextInt();
+			    								
+			    								System.out.println("Capacidade Tanque:");
+			    								int capacidadeTanque = sc.nextInt();
+			    								
+			    								System.out.println("Valor:");
+			    								float preco = sc.nextFloat();
+			    								
 			    								try { 
-			    									sql = "DELETE FROM moto WHERE chassi = '" + chassi + "'"; 
+				    								
+				    								sql = "UPDATE moto" + 
+				    									  " set montadora='" + montadora + "'" +
+				    									  ", modelo='" + modelo + "'" +
+				    									  ", tipo='" + tipo + "'" +
+				    									  ", cor='" + cor + "'" +
+				    									  ", cilindrada='" + cilindrada + "'" +
+				    									  ", capacidade_tanque='" + capacidadeTanque + "'" +
+				    									  ", preco=" + preco +
+				    									  " WHERE chassi='" + chassi +"'";    								
+				    								
 			    									Statement st = con.createStatement();
 			    									st.executeUpdate(sql);
 			    									
-			    									System.out.println("Veículo excluído com sucesso!");
-			    									ControlPrincipal.menuPrincipal();
+			    									System.out.println("Veículo atualizado com sucesso!");
+			    									
+			    									for(int i=0; i<motoLista.size();i++) {
+			    					    				System.out.println("Veículo atualizado com os seguintes dados: ");
+			    					    				System.out.println((i+1) + " - Modelo: " + modelo);
+			    					    				System.out.println("    Montadora: " + montadora);
+			    					    				System.out.println("    Tipo: " + tipo);
+			    					    				System.out.println("    Cor: " + cor);
+			    					    				System.out.println("    Capacidade Tanque: " + cilindrada);
+			    					    				System.out.println("    Capacidade Tanque: " + capacidadeTanque);
+			    					    				System.out.println("    Preço: " + formatoMoeda.format(preco));
+			    					    				System.out.println("-------------------------------------------------");	
+			    					    			}
+			    									
 			    									
 			    								} catch (SQLException e) {
-			    									System.out.println("Erro ao tentar excluir veículo:" + e);
+			    									System.out.println("Erro ao tentar editar veículo:" + e);
 			    									ControlPrincipal.menuPrincipal();
-			    								  }
+			    								}
 			    							}
-			    								
 			    								if (opcao == 2) {
-			    									System.out.println("Retornando ao menu principal:");
+			    									System.out.println("Retonando ao menu principal:");
 			    									ControlPrincipal.menuPrincipal();
 			    								}
 			    									if (opcao != 1 && opcao != 2) {
 			    										System.out.println("Opção Inválida, retornando ao menu principal.");
-			    										ControlPrincipal.menuPrincipal();
 			    									}
 			    		}
 			    		
 			    			else {
-			    				System.out.println("Nenhum veículo encontrado, retornando ao menu principal.");
-			    				ControlPrincipal.menuPrincipal();
+			    				System.out.println("Nenhum veículo encontrado: ");
 			    			}
 			    		
 			   			Conexao.closeConexao();
 		       
 				} catch (SQLException e) {
 		            	return;
-		       	  }
+		       		}
 		}
 }
 	

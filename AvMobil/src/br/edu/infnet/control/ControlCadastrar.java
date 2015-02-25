@@ -14,7 +14,8 @@ public class ControlCadastrar {
 	public static Scanner sc = new Scanner(System.in);
 	
 	public static void cadastrarCarro() {
-	
+		//Recebe os valores do usuário e atribui ao objeto;
+		
 		System.out.println("Informe os dados do veículo: \n");
 
 		Scanner sc = new Scanner(System.in);

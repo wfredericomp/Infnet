@@ -1,5 +1,7 @@
 package br.edu.infnet.model.colecoes;
 
+import java.util.ArrayList;
+
 public enum TipoMotocicleta {
 	BOBBER(1), CAFE_RACER(2), CUSTOM(3), CHOPPER(4), ESPORTIVA(5), FUN_BIKER(6), HYPER_SPORT(
 			7), MAXI_TRAIL(8), MINIMOTOS_OU_POCKETBIKES(9), NAKED(10), OFF_ROAD(
@@ -15,6 +17,18 @@ public enum TipoMotocicleta {
 
 	public int getValue() {
 		return value;
+	}
+
+	public static ArrayList<String> getNomes() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<String> tipoMoto = new ArrayList<String>();
+		
+		for(TipoMotocicleta moto : TipoMotocicleta.values()){
+			tipoMoto.add(moto.toString());
+		}
+				
+		return tipoMoto;
 	}
 
 }

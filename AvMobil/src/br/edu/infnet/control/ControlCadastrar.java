@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import br.edu.infnet.database.Conexao;
+import br.edu.infnet.model.*;
 import br.edu.infnet.model.colecoes.*;
 
 public class ControlCadastrar {
@@ -14,46 +15,67 @@ public class ControlCadastrar {
 	public static Scanner sc = new Scanner(System.in);
 	
 	public static void cadastrarCarro() {
+		
+		ArrayList<Carro> carroLista = new ArrayList<Carro>();
+		
 		//Recebe os valores do usuário e atribui ao objeto;
 		
 		System.out.println("Informe os dados do veículo: \n");
-
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Chassi:");
-		String chassi = sc.nextLine().toUpperCase();
+		int opcao;
 		
-		System.out.println("Montadora:");
-		String montadora = sc.nextLine().toUpperCase();
+		//Solicita todas as inclusões dos veículos;
+		do {
+			Carro carro = new Carro();
+			sc = new Scanner(System.in);
 		
-		System.out.println("Modelo:");
-		String modelo = sc.nextLine().toUpperCase();
+			System.out.println("Chassi:");
+			carro.setChassi(sc.nextLine().toUpperCase()); 
 		
-		System.out.println("Tipo:");
+			System.out.println("Montadora:");
+			carro.setMontadora(sc.nextLine().toUpperCase());
 		
-		int i = 1;
-		for(TipoCarro car : TipoCarro.values()) {
-			System.out.println(i + " - " + car);
-			i++;
-		}
+			System.out.println("Modelo:");
+			carro.setModelo(sc.nextLine().toUpperCase());
 		
-		ArrayList<String> tCarro = TipoCarro.getNomes();
-		String tipo = tCarro.get(sc.nextInt()-1);
+			System.out.println("Tipo:");
 		
-		sc = new Scanner(System.in);
+				int i = 1;
+					for(TipoCarro car : TipoCarro.values()) {
+						System.out.println(i + " - " + car);
+						i++;
+					}
+					
+			ArrayList<String> tCarro = TipoCarro.getNomes();
+			String tipo = tCarro.get(sc.nextInt()-1);
+			carro.setTipo(TipoCarro.valueOf(tipo));
 		
-		System.out.println("Cor:");
-		String cor = sc.nextLine().toUpperCase();
+				sc = new Scanner(System.in);
 		
-		System.out.println("Motor:");
-		String motor = sc.nextLine().toUpperCase();
+			System.out.println("Cor:");
+			carro.setCor(sc.nextLine().toUpperCase());
 		
-		System.out.println("Câmbio:");
-		String cambio = sc.nextLine().toUpperCase();
+			System.out.println("Motor:");
+			carro.setMotor(sc.nextLine().toUpperCase());
 		
-		System.out.println("Valor:");
-		float preco = sc.nextFloat();
+			System.out.println("Câmbio:");
+			carro.setCambio(sc.nextLine().toUpperCase());
+		
+			System.out.println("Valor:");
+			carro.setPreco(sc.nextFloat());
+		
+			carroLista.add(carro);
 			
+			System.out.println("Deseja incluir outro carro?");
+			System.out.println("1 - SIM");
+			System.out.println("2 - NÃO");
+			opcao = sc.nextInt();
+			
+		} while (opcao == 1);
+		
+		
+		//Abre a conexão com o banco de dados, executa a query e verifica as exceções;
 		try {
 			
 			Connection con = Conexao.getConexao();
@@ -62,116 +84,124 @@ public class ControlCadastrar {
 	    	"VALUES (?,?,?,?,?,?,?,?)"; 
 	    	    	
 	    	PreparedStatement comando = con.prepareStatement(sql);
-			
-	    	comando.setString(1, chassi);
-	    	comando.setString(2, montadora);
-	    	comando.setString(3, modelo);
-	    	comando.setString(4, tipo);
-	    	comando.setString(5, cor);
-	    	comando.setString(6, motor);
-	    	comando.setString(7, cambio);
-	    	comando.setFloat(8, preco);
-	    	comando.executeUpdate();
 	    	
-	    	System.out.println("Veículo Registrado com sucesso!");
+	    	for(int j=0; j<carroLista.size();j++) {
+	    		comando.setString(1, carroLista.get(j).getChassi());
+	    		comando.setString(2, carroLista.get(j).getMontadora());
+	    		comando.setString(3, carroLista.get(j).getModelo());
+	    		
+	    		ArrayList<String> tCarro = TipoCarro.getNomes();
+	    		String tipo = tCarro.get(j);
+	    		
+	    		comando.setString(4, tipo);
+	    		comando.setString(5, carroLista.get(j).getCor());
+	    		comando.setString(6, carroLista.get(j).getMotor());
+	    		comando.setString(7, carroLista.get(j).getCambio());
+	    		comando.setFloat(8, carroLista.get(j).getPreco());
+	    		comando.executeUpdate();
+	    	}
+	    	
+	    	System.out.println("Veículo(s) Registrado(s) com sucesso!");
 	    	
 		} catch (SQLException e) {
 			System.out.println("Processo abortado: " + e);
 		}
-		
-		System.out.println("Deseja incluir outro carro?");
-		System.out.println("1 - SIM");
-		System.out.println("2 - NÃO");
-		
-		int opcao = sc.nextInt();
-		
-		if (opcao == 1) {
-			cadastrarCarro();
-		}
-		
-			if (opcao == 2) {
-				ControlPrincipal.menuPrincipal();
-			}
-		
-				if (opcao != 1 && opcao != 2) {
-					System.out.println("Opção inválida!");
-					return;			
-				}
 	}
-
-	public static void cadastrarMoto() {
+	
+public static void cadastrarMoto() {
 		
+		ArrayList<Motocicleta> motoLista = new ArrayList<Motocicleta>();
+		
+		//Recebe os valores do usuário e atribui ao objeto;
 		System.out.println("Informe os dados do veículo: \n");
-
-		System.out.println("Chassi:");
-		String chassi = sc.nextLine().toUpperCase();
+		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Montadora:");
-		String montadora = sc.nextLine().toUpperCase();
+		int opcao;
 		
-		System.out.println("Modelo:");
-		String modelo = sc.nextLine().toUpperCase();
+		//Solicita todas as inclusões de veículos;
+		do {
+			Motocicleta moto = new Motocicleta();
+			sc = new Scanner(System.in);
 		
-		System.out.println("Tipo:");
-		String tipo = sc.nextLine().toUpperCase();
+			System.out.println("Chassi:");
+			moto.setChassi(sc.nextLine().toUpperCase()); 
 		
-		System.out.println("Cor:");
-		String cor = sc.nextLine().toUpperCase();
+			System.out.println("Montadora:");
+			moto.setMontadora(sc.nextLine().toUpperCase());
 		
-		System.out.println("Cilindrada:");
-		int cilindrada = sc.nextInt();
+			System.out.println("Modelo:");
+			moto.setModelo(sc.nextLine().toUpperCase());
 		
-		System.out.println("Câmbio:");
-		int capacidadeTanque = sc.nextInt();
+			System.out.println("Tipo:");
 		
-		System.out.println("Valor:");
-		float preco = sc.nextFloat();
+				int i = 1;
+					for(TipoMotocicleta car : TipoMotocicleta.values()) {
+						System.out.println(i + " - " + car);
+						i++;
+					}
+					
+			ArrayList<String> tmoto = TipoMotocicleta.getNomes();
+			String tipo = tmoto.get(sc.nextInt()-1);
+			moto.setTipo(TipoMotocicleta.valueOf(tipo));
+		
+				sc = new Scanner(System.in);
+		
+			System.out.println("Cor:");
+			moto.setCor(sc.nextLine().toUpperCase());
+		
+			System.out.println("Motor:");
+			moto.setCilindrada(sc.nextInt());
+		
+			System.out.println("Câmbio:");
+			moto.setCapacidadeTanque(sc.nextInt());
+		
+			System.out.println("Valor:");
+			moto.setPreco(sc.nextFloat());
+		
+			motoLista.add(moto);
 			
+			System.out.println("Deseja incluir outro moto?");
+			System.out.println("1 - SIM");
+			System.out.println("2 - NÃO");
+			opcao = sc.nextInt();
+			
+		} while (opcao == 1);
+		
+		
+		//Abre a conexão com o banco de dados, executa a query e verifica as exceções;
 		try {
 			
 			Connection con = Conexao.getConexao();
 			
-	    	String sql = "INSERT INTO moto (chassi, montadora, modelo, tipo, cor, cilindrada, capacidade_tanque, preco )" +
+	    	String sql = "INSERT INTO moto (chassi, montadora, modelo, tipo, cor, motor, cambio, preco )" +
 	    	"VALUES (?,?,?,?,?,?,?,?)"; 
 	    	    	
 	    	PreparedStatement comando = con.prepareStatement(sql);
-			
-	    	comando.setString(1, chassi);
-	    	comando.setString(2, montadora);
-	    	comando.setString(3, modelo);
-	    	comando.setString(4, tipo);
-	    	comando.setString(5, cor);
-	    	comando.setInt(6, cilindrada);
-	    	comando.setInt(7, capacidadeTanque);
-	    	comando.setFloat(8, preco);
-	    	comando.executeUpdate();
 	    	
-	    	System.out.println("Veículo Registrado com sucesso!");
+	    	for(int j=0; j<motoLista.size();j++) {
+	    		comando.setString(1, motoLista.get(j).getChassi());
+	    		comando.setString(2, motoLista.get(j).getMontadora());
+	    		comando.setString(3, motoLista.get(j).getModelo());
+	    		
+	    		ArrayList<String> tmoto = TipoMotocicleta.getNomes();
+	    		String tipo = tmoto.get(j);
+	    		
+	    		comando.setString(4, tipo);
+	    		comando.setString(5, motoLista.get(j).getCor());
+	    		comando.setInt(6, motoLista.get(j).getCilindrada());
+	    		comando.setInt(7, motoLista.get(j).getCapacidadeTanque());
+	    		comando.setFloat(8, motoLista.get(j).getPreco());
+	    		comando.executeUpdate();
+	    	}
+	    	
+	    	System.out.println("Veículo(s) Registrado(s) com sucesso!");
 	    	
 		} catch (SQLException e) {
 			System.out.println("Processo abortado: " + e);
 		}
-		
-		System.out.println("Deseja incluir outro veículo?");
-		System.out.println("1 - SIM");
-		System.out.println("2 - NÃO");
-		
-		int opcao = sc.nextInt();
-		
-		if (opcao == 1) {
-			cadastrarMoto();
-		}
-		
-			if (opcao == 2) {
-				ControlPrincipal.menuPrincipal();
-			}
-		
-				if (opcao != 1 && opcao != 2) {
-					System.out.println("Opção inválida!");
-					return;			
-				}
 	}
 
+	
 }
 
 

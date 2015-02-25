@@ -13,6 +13,8 @@ public class ControlPrincipal {
 	}
 	
 	public static void menuPrincipal() {
+		
+		//Exibe as opções do menu principal e trata as ações do usuário
 
 		System.out.println(" ______________________________________________________");
 		System.out.println("|                                                      |");

@@ -21,6 +21,8 @@ public class ControlExcluir {
 	
 		public static void excluirCarro() {
 			
+			
+			//Pesquisa parâmetro chassi informado pelo usuário
 			ArrayList<Carro> carroLista = new ArrayList<Carro>();
 			carroLista = ControlPesquisa.pesquisaChassiCarro();
 			String chassi = carroLista.get(0).getChassi();
@@ -36,6 +38,8 @@ public class ControlExcluir {
 			int opcao = sc.nextInt();
 			    	
 				if (opcao ==1) {
+					
+					//Abre conexão com o banco e excluir o veículo;
 					try { 
 							Connection con = Conexao.getConexao();
 			    			String sql = "DELETE FROM carro WHERE chassi = '" + chassi + "'"; 
@@ -61,6 +65,8 @@ public class ControlExcluir {
 			    		
 		public static void excluirMoto() {
 			
+			
+			//Pesquisa parâmetro chassi informado pelo usuário;
 			ArrayList<Motocicleta> motoLista = new ArrayList<Motocicleta>();
 			motoLista = ControlPesquisa.pesquisaChassiMoto();
 			String chassi = motoLista.get(0).getChassi();
@@ -76,6 +82,8 @@ public class ControlExcluir {
 			int opcao = sc.nextInt();
 			    					
 			if (opcao ==1) {
+				
+				//Abre conexão com o banco de dados e exclui veículo;
 				try { 
 					String sql = "DELETE FROM moto WHERE chassi = '" + chassi + "'";
 					Connection con = Conexao.getConexao();

@@ -14,8 +14,9 @@ public class ControlListar {
 	static NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(); 		
 	
 	public static void listaCarros() {	
-		System.out.println("Conectando com BD.\n");
 		
+		//Recupera os atributos do objeto do banco de dados;
+		System.out.println("Conectando com BD.\n");
 		ArrayList<Carro> carroLista = new ArrayList<Carro>();
 		  
 		           
@@ -42,6 +43,8 @@ public class ControlListar {
             	return;
        		}
              
+		
+		//Imprime lista de carros encontrados;
    		System.out.println("\n Estes são nossos carros disponíveis: \n");
    		   		
             for(int i=0; i<carroLista.size();i++) {
@@ -60,6 +63,8 @@ public class ControlListar {
             
             
     public static void listaMotocicletas() {	
+    	
+    		//Recupera os veículos cadastrados no banco;
     		System.out.println("Conectando com BD.\n");
        		
        		ArrayList<Motocicleta> motoLista = new ArrayList<Motocicleta>();  
@@ -74,7 +79,7 @@ public class ControlListar {
                   moto.setChassi(srs.getString("chassi"));
                   moto.setMontadora(srs.getString("montadora"));
                   moto.setModelo(srs.getString("modelo"));
-                 // moto.setTipo((TipoMotocicleta) srs.getString("tipo"));
+                  moto.setStrTipo( srs.getString("tipo"));
                   moto.setCor(srs.getString("cor"));
                   moto.setCilindrada(srs.getInt("cilindradas"));
                   moto.setCapacidadeTanque(srs.getInt("capacidade_tanque"));
@@ -87,7 +92,9 @@ public class ControlListar {
        		} catch (SQLException e) {
                    	return;
        			}
-                     
+                
+       		
+       			//Imprime veículos recuperados do banco de dados;
            		System.out.println("\n Estes são nossos veículos disponíveis: \n");
            		   		
                 for(int i=0; i<motoLista.size();i++) {

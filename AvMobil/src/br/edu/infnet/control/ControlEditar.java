@@ -22,6 +22,7 @@ public class ControlEditar {
 	
 		public static void editarCarro() {
 			
+			//Recebe os valores passados pelo usuário;
 			ArrayList<Carro> carroLista = new ArrayList<Carro>();
 
 			carroLista = ControlPesquisa.pesquisaChassiCarro();
@@ -71,6 +72,9 @@ public class ControlEditar {
 			    								carroLista.clear();
 			    								carroLista.add(carro);
 			    								
+			    								
+			    								
+			    								//Solicita validação dos dados pelo usuário;
 			    								System.out.println("Confirma a gravação dos seguintes dados?");
 			    								
 			    								 for(int i=0; i<carroLista.size();i++) {
@@ -93,6 +97,7 @@ public class ControlEditar {
 			    								 
 			    								 if (opcao == 1) {
 			    								 
+			    									 //Abre a conexão com o banco, executa a query e verifica exceções;
 			    									 try { 
 				    								
 			    										 String sql = "UPDATE carro" + 
@@ -140,6 +145,8 @@ public class ControlEditar {
 
 		public static void editarMoto() {
 			
+			//Recebe os valores passados pelo usuário;
+			
 			ArrayList<Motocicleta> motoLista = new ArrayList<Motocicleta>();
 			motoLista = ControlPesquisa.pesquisaChassiMoto();
 			String chassi = motoLista.get(0).getChassi();
@@ -168,7 +175,7 @@ public class ControlEditar {
 			    								moto.setModelo(sc.nextLine().toUpperCase());
 			    								
 			    								System.out.println("Tipo:");
-			    								//moto.setTipo(sc.nextLine().toUpperCase());
+			    								moto.setStrTipo(sc.nextLine().toUpperCase());
 			    								
 			    								System.out.println("Cor:");
 			    								moto.setCor(sc.nextLine().toUpperCase());
@@ -184,6 +191,8 @@ public class ControlEditar {
 			    								
 			    								motoLista.clear();
 			    								motoLista.add(moto);
+			    								
+			    								//Abre a conexão com o banco, executa a query e verifica por execeções;
 			    									try { 
 				    								
 			    										String sql = "UPDATE moto" + 

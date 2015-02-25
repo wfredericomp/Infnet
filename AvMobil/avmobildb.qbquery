@@ -36,6 +36,7 @@ CREATE TABLE `avmobildb`.`moto` (
   `capacidade_tanque` INT NOT NULL,
   `preco` FLOAT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC));
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE KEY `chassi_UNIQUE` (`chassi`));
 
 drop database avmobildb;

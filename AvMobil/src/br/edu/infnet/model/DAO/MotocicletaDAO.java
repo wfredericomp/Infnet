@@ -42,7 +42,7 @@ public class MotocicletaDAO {
 	public ArrayList<Motocicleta> listar() throws Exception {
 		ArrayList<Motocicleta> listMoto = new ArrayList<Motocicleta>();
 		try {
-			String sql = "select *from carro";
+			String sql = "select *from moto";
 			Statement st = Conexao.getConexao().createStatement();
 			ResultSet rs = st.executeQuery(sql);
 

@@ -42,7 +42,7 @@ public class MotocicletaBean {
 		return listTiposMotos;
 	}
 
-	public String gravaMotos() throws Exception {
+	public String gravaMoto() throws Exception {
 		boolean db;
 		System.out.println(this.moto.getChassi().toUpperCase());
 		moto.setChassi(this.moto.getChassi().toUpperCase());
@@ -131,7 +131,7 @@ public class MotocicletaBean {
 		return listmotos;
 	}
 
-	public void deletarCarro(Motocicleta moto) throws Exception {
+	public void deletarMoto(Motocicleta moto) throws Exception {
 		boolean db = false;
 		MotocicletaDAO dao = new MotocicletaDAO();
 

@@ -53,6 +53,7 @@ public class ControlEditar {
 			    								carro.setModelo(sc.nextLine().toUpperCase());
 			    								
 			    								System.out.println("Tipo:");
+			    								
 			    								carro.setStrTipo(sc.nextLine().toUpperCase());
 			    								
 			    								System.out.println("Cor:");

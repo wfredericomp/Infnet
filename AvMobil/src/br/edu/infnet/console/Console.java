@@ -8,7 +8,7 @@ public class Console {
 		// TODO Auto-generated method stub
 		
 		ControlPrincipal.menuPrincipal();
-		
+				
 	}
 }
 

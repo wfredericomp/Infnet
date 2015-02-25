@@ -3,9 +3,11 @@ package br.edu.infnet.control;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import br.edu.infnet.database.Conexao;
+import br.edu.infnet.model.colecoes.*;
 
 public class ControlCadastrar {
 	
@@ -15,6 +17,8 @@ public class ControlCadastrar {
 	
 		System.out.println("Informe os dados do veículo: \n");
 
+		Scanner sc = new Scanner(System.in);
+		
 		System.out.println("Chassi:");
 		String chassi = sc.nextLine().toUpperCase();
 		
@@ -25,7 +29,17 @@ public class ControlCadastrar {
 		String modelo = sc.nextLine().toUpperCase();
 		
 		System.out.println("Tipo:");
-		String tipo = sc.nextLine().toUpperCase();
+		
+		int i = 1;
+		for(TipoCarro car : TipoCarro.values()) {
+			System.out.println(i + " - " + car);
+			i++;
+		}
+		
+		ArrayList<String> tCarro = TipoCarro.getNomes();
+		String tipo = tCarro.get(sc.nextInt()-1);
+		
+		sc = new Scanner(System.in);
 		
 		System.out.println("Cor:");
 		String cor = sc.nextLine().toUpperCase();

@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<h:body>
+	<ui:composition template="_template.xhtml">
+		<ui:define name="conteudo">
+			<h:messages class="mensagem" />
+			<h:form prependId="false">
+				<br />
+				<fieldset>
+					<legend>DADOS DA MOTOCICLETA</legend>
+
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Chassi:" for="chassi" />
+						<h:inputText id="chassi" value="#{motocicletaBean.moto.chassi}"
+							required="true" requiredMessage="Chassi obrigatório"
+							validatorMessage="Chassi deve ter 17 caracteres">
+							<f:validateLength maximum="17" minimum="17" />
+						</h:inputText>
+
+						<h:outputLabel value="Montadora:" for="montadora" />
+						<h:inputText id="montadora" value="#{motocicletaBean.moto.montadora}"
+							required="true" requiredMessage="Montadora obrigatório"
+							validatorMessage="Montadora não pode ser superior a 15 e inferior a 2">
+							<f:validateLength maximum="15" minimum="2" />
+						</h:inputText>
+
+						<h:outputLabel value="Modelo:" for="modelo" />
+						<h:inputText id="modelo" value="#{motocicletaBean.moto.modelo}"
+							required="true" requiredMessage="Modelo obrigatório"
+							validatorMessage="Modelo não pode ser superior a 45 e inferior a 2">
+							<f:validateLength maximum="45" minimum="2" />
+						</h:inputText>
+
+						<h:outputLabel value="Selecione um tipo de moto:" for="tipo" />
+						<h:selectOneMenu value="#{motocicletaBean.moto.strTipo}" id="tipo">
+							<f:selectItems value="#{motocicletaBean.tipoMotos}" var="tipos"
+								itemLabel="#{tipos}" itemValue="#{tipos}" />
+						</h:selectOneMenu>
+
+						<h:outputLabel value="Cor:" for="cor" />
+						<h:inputText id="cor" value="#{motocicletaBean.moto.cor}"
+							required="true" requiredMessage="Cor obrigatório"
+							validatorMessage="cor não pode ser superior a 45 e inferior a 3">
+							<f:validateLength maximum="45" minimum="3" />
+						</h:inputText>
+
+						<h:outputLabel value="Cilindrada:" for="cilindrada" />
+						<h:inputText id="cilindrada" value="#{motocicletaBean.moto.cilindrada}"
+							required="true" requiredMessage="Cilindrada obrigatório"
+							validatorMessage="Cilindrada não pode ser superior a 4 e inferior a 2">
+							<f:validateLength maximum="4" minimum="2" />
+						</h:inputText>
+
+						<h:outputLabel value="Capacidade do tanque:" for="capacidadeTanque" />
+						<h:inputText id="capacidadeTanque" value="#{motocicletaBean.moto.capacidadeTanque}"
+							required="true" requiredMessage="Capacidade tanque obrigatório"
+							validatorMessage="Capacidade tanque não pode ser superior a 1 e inferior a 2">
+							<f:validateLength maximum="2" minimum="1" />
+						</h:inputText>
+
+						<h:outputLabel value="Preço:" for="preco" />
+						<h:inputText id="preco" value="#{motocicletaBean.moto.preco}"
+							required="true" requiredMessage="Preço obrigatório">
+							<f:convertNumber pattern="#########,##0.00"></f:convertNumber>
+						</h:inputText>
+
+						<br />
+					</h:panelGrid>
+				</fieldset>
+				<br />
+				<h:commandButton value="Gravar" class="botao"
+					actionListener="#{motocicletaBean.gravaMoto}" />
+				<br />
+			</h:form>
+			<br />
+
+			<fieldset>
+				<h:form prependId="false">
+					<h:outputLabel value="PESQUISAR CHASSI: " for="busca" />
+					<h:inputText value="#{motocicletaBean.moto.chassi}" id="busca" />
+					<h:commandButton value=" BUSCAR " class="botaoBusca" actionListener="#{motocicletaBean.listarPorChassi}" />
+				</h:form>
+			</fieldset>
+
+			<br />
+			<f:view>
+				<h:form>
+					<h:dataTable value="#{motocicletaBean.listarEstoquedeMotos}" var="lista"
+						styleClass="tabela" headerClass="cabecalhos"
+						columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo">
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="CÓD" />
+							</f:facet>
+							<h:outputText value="#{lista.id}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="CHASSI" />
+							</f:facet>
+							<h:outputText value="#{lista.chassi}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="MONTADORA" />
+							</f:facet>
+							<h:outputText value="#{lista.montadora}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="MODELO" />
+							</f:facet>
+							<h:outputText value="#{lista.modelo}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="TIPO" />
+							</f:facet>
+							<h:outputText value="#{lista.strTipo}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="COR" />
+							</f:facet>
+							<h:outputText value="#{lista.cor}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="CILINDRADA" />
+							</f:facet>
+							<h:outputText value="#{lista.cilindrada}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="CAP-TANQUE" />
+							</f:facet>
+							<h:outputText value="#{lista.capacidadeTanque}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="PREÇO" />
+							</f:facet>
+							<h:outputText value="#{lista.preco}">
+								<f:convertNumber type="currency" />
+							</h:outputText>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="DEL" />
+							</f:facet>
+							<h:commandButton value="remover" class="botaoLista"
+								actionListener="#{motocicletaBean.deletarMoto(lista)}" />
+						</h:column>
+
+					</h:dataTable>
+				</h:form>
+			</f:view>
+			<br />
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
